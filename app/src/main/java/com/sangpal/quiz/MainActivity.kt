@@ -1,10 +1,12 @@
 package com.sangpal.quiz
 
 import android.os.Bundle
+import android.widget.RadioGroup
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
@@ -13,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sangpal.quiz.ui.theme.QuizTheme
 
@@ -77,19 +80,35 @@ fun DisplayQuestion(question: Question) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            RadioButton(selected = false, onClick = { selectAnswer(1) })
-            Text(question.optionA)
-            RadioButton(selected = false, onClick = { selectAnswer(2) })
-            Text(question.optionB)
+            Column(Modifier.weight(0.5f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(selected = (selectedAnswer == 1), onClick = { selectAnswer(1) })
+                    Text(question.optionA)
+                }
+            }
+            Column(Modifier.weight(0.5f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(selected = (selectedAnswer == 2), onClick = { selectAnswer(2) })
+                    Text(question.optionB)
+                }
+            }
         }
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            RadioButton(selected = false, onClick = { selectAnswer(3) })
-            Text(question.optionC)
-            RadioButton(selected = false, onClick = { selectAnswer(4) })
-            Text(question.optionD)
+            Column(Modifier.weight(0.5f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(selected = (selectedAnswer == 3), onClick = { selectAnswer(3) })
+                    Text(question.optionC)
+                }
+            }
+            Column(Modifier.weight(0.5f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(selected = (selectedAnswer == 4), onClick = { selectAnswer(4) })
+                    Text(question.optionD)
+                }
+            }
         }
         // Submit button
         Row(
@@ -125,7 +144,8 @@ fun TableScreen() {
     LazyColumn(
         Modifier
             .fillMaxSize()
-            .padding(16.dp)) {
+            .padding(16.dp)
+    ) {
         item {
             Row(Modifier.background(Color.Gray)) {
                 TableCell(text = "Column 1", weight = column1Weight)
