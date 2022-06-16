@@ -1,21 +1,17 @@
 package com.sangpal.quiz
 
 import android.os.Bundle
-import android.widget.RadioGroup
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sangpal.quiz.ui.theme.QuizTheme
 
@@ -63,6 +59,7 @@ fun DisplayAppTitle() {
 
 @Composable
 fun DisplayQuestion(question: Question) {
+    val (selectedOption, onOptionSelected) = remember { mutableStateOf(-1) }
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -81,14 +78,28 @@ fun DisplayQuestion(question: Question) {
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Column(Modifier.weight(0.5f)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    RadioButton(selected = (selectedAnswer == 1), onClick = { selectAnswer(1) })
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .selectable(
+                            selected = (selectedOption == 1),
+                            onClick = { onOptionSelected(1) })
+                        .fillMaxWidth()
+                ) {
+                    RadioButton(selected = (selectedOption == 1), onClick = { onOptionSelected(1) })
                     Text(question.optionA)
                 }
             }
             Column(Modifier.weight(0.5f)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    RadioButton(selected = (selectedAnswer == 2), onClick = { selectAnswer(2) })
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .selectable(
+                            selected = (selectedOption == 2),
+                            onClick = { onOptionSelected(2) })
+                        .fillMaxWidth()
+                ) {
+                    RadioButton(selected = (selectedOption == 2), onClick = { onOptionSelected(2) })
                     Text(question.optionB)
                 }
             }
@@ -98,14 +109,28 @@ fun DisplayQuestion(question: Question) {
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Column(Modifier.weight(0.5f)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    RadioButton(selected = (selectedAnswer == 3), onClick = { selectAnswer(3) })
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .selectable(
+                            selected = (selectedOption == 3),
+                            onClick = { onOptionSelected(3) })
+                        .fillMaxWidth()
+                ) {
+                    RadioButton(selected = (selectedOption == 3), onClick = { onOptionSelected(3) })
                     Text(question.optionC)
                 }
             }
             Column(Modifier.weight(0.5f)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    RadioButton(selected = (selectedAnswer == 4), onClick = { selectAnswer(4) })
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .selectable(
+                            selected = (selectedOption == 4),
+                            onClick = { onOptionSelected(4) })
+                        .fillMaxWidth()
+                ) {
+                    RadioButton(selected = (selectedOption == 4), onClick = { onOptionSelected(4) })
                     Text(question.optionD)
                 }
             }
@@ -120,44 +145,6 @@ fun DisplayQuestion(question: Question) {
             }
         }
     }
-}
-
-@Composable
-fun RowScope.TableCell(
-    text: String,
-    weight: Float
-) {
-    Text(
-        text = text,
-        Modifier
-            .border(1.dp, Color.Black)
-            .weight(weight)
-            .padding(8.dp)
-    )
-}
-
-@Composable
-fun TableScreen() {
-    val column1Weight = 0.3f
-    val column2Weight = 0.7f;
-
-    LazyColumn(
-        Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        item {
-            Row(Modifier.background(Color.Gray)) {
-                TableCell(text = "Column 1", weight = column1Weight)
-                TableCell(text = "Column 2", weight = column2Weight)
-            }
-        }
-    }
-}
-
-var selectedAnswer: Int = -1;
-fun selectAnswer(selected: Int) {
-    selectedAnswer = selected
 }
 
 @Preview(showBackground = true)
