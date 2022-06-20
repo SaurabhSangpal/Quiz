@@ -14,8 +14,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sangpal.quiz.ui.theme.QuizTheme
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.decodeFromStream
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalSerializationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -25,28 +30,17 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    DisplayQuestion(
-                        question = Question(
-                            "What is the capital of India?",
-                            "Mumbai",
-                            "Pune",
-                            "Delhi",
-                            "Kanpur",
-                            3
-                        )
-                    )
+                    val file = assets.open("all_questions.json")
+                    var obj: Question? = null
+                    try {
+                        obj = Json.decodeFromStream<Root>(file).question
+                    } catch (e: Exception) {
+                    }
+                    if (obj != null)
+                        DisplayQuestion(question = obj)
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = "Hello $name!")
-        Text(text = "Hello $name!")
-        Text(text = "Hello $name!")
     }
 }
 
@@ -140,7 +134,11 @@ fun DisplayQuestion(question: Question) {
             verticalAlignment = Alignment.Bottom,
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = {
+                if (selectedOption == question.correctAnswer) {
+                } else {
+                }
+            }) {
                 Text("Submit")
             }
         }
@@ -149,8 +147,17 @@ fun DisplayQuestion(question: Question) {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun PreviewQuestion() {
     QuizTheme {
-        Greeting("Android")
+        DisplayQuestion(
+            question = Question(
+                "What is the capital of India?",
+                "Mumbai",
+                "Delhi",
+                "Pune",
+                "Kolkata",
+                2
+            )
+        )
     }
 }
