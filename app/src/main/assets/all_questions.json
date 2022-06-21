@@ -1,10 +1,124 @@
 {
-  "question": {
-    "question": "What is the capital of India?",
-    "optionA": "Mumbai",
-    "optionB": "Pune",
-    "optionC": "Delhi",
-    "optionD": "Kolkata",
-    "correctAnswer": 3
+  "allQuestions": {
+    "l1": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ],
+    "l2": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ],
+    "l3": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ],
+    "l4": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ],
+    "l5": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ],
+    "l6": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ],
+    "l7": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ],
+    "l8": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ],
+    "l9": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ],
+    "l10": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ],
+    "l11": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ],
+    "l12": [
+      {
+        "q": "What is the capital of India?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Delhi",
+        "d": "Kolkata",
+        "ans": 3
+      }
+    ]
   }
 }
