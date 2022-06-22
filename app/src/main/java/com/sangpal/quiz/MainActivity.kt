@@ -1,5 +1,6 @@
 package com.sangpal.quiz
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,7 +16,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sangpal.quiz.ui.theme.QuizTheme
 import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
 
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     val file = assets.open("all_questions.json")
                     var obj: Question? = null
                     try {
-                        obj = Json.decodeFromStream<Root>(file).question
+                        obj = Json.decodeFromStream<Root>(file).allQuestions.l1[0]
                     } catch (e: Exception) {
                     }
                     if (obj != null)
@@ -54,6 +54,7 @@ fun DisplayAppTitle() {
 @Composable
 fun DisplayQuestion(question: Question) {
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(-1) }
+    val (submitText, onSubmitTextChange) = remember { mutableStateOf("Submit") }
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -64,7 +65,7 @@ fun DisplayQuestion(question: Question) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
-            Text(text = question.question)
+            Text(text = question.q)
         }
         // Options.
         Row(
@@ -81,7 +82,7 @@ fun DisplayQuestion(question: Question) {
                         .fillMaxWidth()
                 ) {
                     RadioButton(selected = (selectedOption == 1), onClick = { onOptionSelected(1) })
-                    Text(question.optionA)
+                    Text(question.a)
                 }
             }
             Column(Modifier.weight(0.5f)) {
@@ -94,7 +95,7 @@ fun DisplayQuestion(question: Question) {
                         .fillMaxWidth()
                 ) {
                     RadioButton(selected = (selectedOption == 2), onClick = { onOptionSelected(2) })
-                    Text(question.optionB)
+                    Text(question.b)
                 }
             }
         }
@@ -112,7 +113,7 @@ fun DisplayQuestion(question: Question) {
                         .fillMaxWidth()
                 ) {
                     RadioButton(selected = (selectedOption == 3), onClick = { onOptionSelected(3) })
-                    Text(question.optionC)
+                    Text(question.c)
                 }
             }
             Column(Modifier.weight(0.5f)) {
@@ -125,7 +126,7 @@ fun DisplayQuestion(question: Question) {
                         .fillMaxWidth()
                 ) {
                     RadioButton(selected = (selectedOption == 4), onClick = { onOptionSelected(4) })
-                    Text(question.optionD)
+                    Text(question.d)
                 }
             }
         }
@@ -135,11 +136,20 @@ fun DisplayQuestion(question: Question) {
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Button(onClick = {
-                if (selectedOption == question.correctAnswer) {
+                // TODO: Add next & back functionality.
+                if (submitText.equals("Next")) {
+                    return@Button
+                }
+                else if (submitText.equals("Back")) {
+                    return@Button
+                }
+                if (selectedOption == question.ans) {
+                    onSubmitTextChange("Next")
                 } else {
+                    onSubmitTextChange("Back")
                 }
             }) {
-                Text("Submit")
+                Text(submitText)
             }
         }
     }
