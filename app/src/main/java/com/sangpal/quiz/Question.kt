@@ -1,7 +1,6 @@
 package com.sangpal.quiz
 
 import kotlinx.serialization.Serializable
-import java.lang.Exception
 
 // A is 1, B is 2, C is 3, D is 4, ans points to the index of the option.
 @Serializable
@@ -32,7 +31,11 @@ class AllQuestions(
     val l11: List<Question>,
     val l12: List<Question>
 ) {
-    public fun getQuestionByLvl(level: Int): Question {
+    companion object {
+        const val TOTAL_LEVELS = 12
+    }
+
+    fun getQuestionByLvl(level: Int): Question {
         when (level) {
             1 -> return l1[0]
             2 -> return l2[0]
@@ -46,6 +49,25 @@ class AllQuestions(
             10 -> return l10[0]
             11 -> return l11[0]
             12 -> return l12[0]
+        }
+
+        throw IndexOutOfBoundsException()
+    }
+
+    fun getScoreByLvl(level: Int): Int {
+        when (level) {
+            1 -> return 1000
+            2 -> return 2000
+            3 -> return 3000
+            4 -> return 5000
+            5 -> return 10000
+            6 -> return 20000
+            7 -> return 40000
+            8 -> return 80000
+            9 -> return 160000
+            10 -> return 320000
+            11 -> return 640000
+            12 -> return 1000000
         }
 
         throw IndexOutOfBoundsException()
