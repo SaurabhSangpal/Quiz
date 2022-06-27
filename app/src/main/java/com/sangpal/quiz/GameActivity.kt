@@ -3,29 +3,42 @@ package com.sangpal.quiz
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.RadioButton
 import androidx.compose.material.Text
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.sangpal.quiz.ui.theme.Gradient
+import com.sangpal.quiz.ui.theme.Green
 import com.sangpal.quiz.ui.theme.QuizTheme
+import com.sangpal.quiz.ui.theme.Red
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
 
 class GameActivity : ComponentActivity() {
-    var currentLevel = 1;
     private lateinit var allQuestions: AllQuestions
+    private var timer: CountDownTimer? = null
+
+    private var currentLevel = 1;
+    private var hasBeenPaused = false;
 
     @OptIn(ExperimentalSerializationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,8 +48,15 @@ class GameActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colors.background,
                 ) {
+                    val adView = AdView(this)
+                    adView.setAdSize(AdSize.BANNER)
+                    adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
+//                    adView.adUnitId = "ca-app-pub-7498702741598425/9875318612"
+                    val request = AdRequest.Builder().build()
+                    adView.loadAd(request)
+
                     val file = assets.open("all_questions.json")
                     try {
                         allQuestions = Json.decodeFromStream<Root>(file).allQuestions
@@ -47,6 +67,17 @@ class GameActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (hasBeenPaused)
+            loadMainMenu()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        hasBeenPaused = true
     }
 
     private fun loadMainMenu() {
@@ -66,7 +97,29 @@ class GameActivity : ComponentActivity() {
             )
         }
         val (score, onScoreChange) = remember { mutableStateOf(0) }
-        DisplayScore(score = score, onScoreChange = onScoreChange)
+        DisplayScore(score = score)
+
+        val (time, onTimeChange) = remember { mutableStateOf(60) }
+        val (timerStarted, onTimerStarted) = remember { mutableStateOf(false) }
+
+        if (timer == null) {
+            timer = object : CountDownTimer(60000, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    onTimeChange((millisUntilFinished / 1000).toInt())
+                }
+
+                override fun onFinish() {
+                    TODO("Not yet implemented")
+                }
+            }
+        }
+        if (!timerStarted) {
+            timer?.start()
+            onTimerStarted(true)
+        }
+
+        DisplayTimer(time = time)
+
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
@@ -87,11 +140,12 @@ class GameActivity : ComponentActivity() {
                 Column(Modifier.weight(0.5f)) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .selectable(
-                                selected = (selectedOption == 1),
-                                onClick = { onOptionSelected(1) })
-                            .fillMaxWidth()
+                        modifier = buildOptionModifier(
+                            index = 1,
+                            submitText = submitText,
+                            selectedOption = selectedOption,
+                            onOptionSelected = onOptionSelected
+                        )
                     ) {
                         RadioButton(
                             selected = (selectedOption == 1),
@@ -102,11 +156,12 @@ class GameActivity : ComponentActivity() {
                 Column(Modifier.weight(0.5f)) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .selectable(
-                                selected = (selectedOption == 2),
-                                onClick = { onOptionSelected(2) })
-                            .fillMaxWidth()
+                        modifier = buildOptionModifier(
+                            index = 2,
+                            submitText = submitText,
+                            selectedOption = selectedOption,
+                            onOptionSelected = onOptionSelected
+                        )
                     ) {
                         RadioButton(
                             selected = (selectedOption == 2),
@@ -122,11 +177,12 @@ class GameActivity : ComponentActivity() {
                 Column(Modifier.weight(0.5f)) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .selectable(
-                                selected = (selectedOption == 3),
-                                onClick = { onOptionSelected(3) })
-                            .fillMaxWidth()
+                        modifier = buildOptionModifier(
+                            index = 3,
+                            submitText = submitText,
+                            selectedOption = selectedOption,
+                            onOptionSelected = onOptionSelected
+                        )
                     ) {
                         RadioButton(
                             selected = (selectedOption == 3),
@@ -137,11 +193,12 @@ class GameActivity : ComponentActivity() {
                 Column(Modifier.weight(0.5f)) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .selectable(
-                                selected = (selectedOption == 4),
-                                onClick = { onOptionSelected(4) })
-                            .fillMaxWidth()
+                        modifier = buildOptionModifier(
+                            index = 4,
+                            submitText = submitText,
+                            selectedOption = selectedOption,
+                            onOptionSelected = onOptionSelected
+                        )
                     ) {
                         RadioButton(
                             selected = (selectedOption == 4),
@@ -181,7 +238,7 @@ class GameActivity : ComponentActivity() {
                     } else {
                         onSubmitTextChange("Back")
                     }
-                }) {
+                }, enabled = selectedOption != -1) {
                     Text(submitText)
                 }
             }
@@ -189,7 +246,7 @@ class GameActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun DisplayScore(score: Int, onScoreChange: (Int) -> Unit) {
+    private fun DisplayScore(score: Int) {
         Row(
             modifier = Modifier.padding(15.dp),
             verticalAlignment = Alignment.Top,
@@ -198,6 +255,35 @@ class GameActivity : ComponentActivity() {
             val st = score.toString()
             Text("$ $st")
         }
+    }
+
+    @Composable
+    private fun DisplayTimer(time: Int) {
+        Row(
+            modifier = Modifier.padding(15.dp),
+            verticalAlignment = Alignment.Top,
+            horizontalArrangement = Arrangement.Start
+        ) {
+            Text(time.toString())
+        }
+    }
+
+    @Composable
+    private fun buildOptionModifier(
+        index: Int,
+        submitText: String,
+        selectedOption: Int,
+        onOptionSelected: (Int) -> Unit
+    ): Modifier {
+        return Modifier
+            .clip(RoundedCornerShape(8.dp))
+            .selectable(
+                selected = (selectedOption == index),
+                onClick = { onOptionSelected(index) })
+            .fillMaxWidth()
+            .background(
+                if (selectedOption == index && submitText == "Next") Green else if (selectedOption == index && submitText == "Back") Red else MaterialTheme.colors.background
+            )
     }
 
     /*
