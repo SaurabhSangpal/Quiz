@@ -144,12 +144,13 @@ class GameActivity : ComponentActivity() {
                             index = 1,
                             submitText = submitText,
                             selectedOption = selectedOption,
+                            answer = question.ans,
                             onOptionSelected = onOptionSelected
                         )
                     ) {
                         RadioButton(
                             selected = (selectedOption == 1),
-                            onClick = { onOptionSelected(1) })
+                            onClick = { if (submitText == "Submit") onOptionSelected(1) })
                         Text(question.a)
                     }
                 }
@@ -160,12 +161,13 @@ class GameActivity : ComponentActivity() {
                             index = 2,
                             submitText = submitText,
                             selectedOption = selectedOption,
+                            answer = question.ans,
                             onOptionSelected = onOptionSelected
                         )
                     ) {
                         RadioButton(
                             selected = (selectedOption == 2),
-                            onClick = { onOptionSelected(2) })
+                            onClick = { if (submitText == "Submit") onOptionSelected(2) })
                         Text(question.b)
                     }
                 }
@@ -181,12 +183,13 @@ class GameActivity : ComponentActivity() {
                             index = 3,
                             submitText = submitText,
                             selectedOption = selectedOption,
+                            answer = question.ans,
                             onOptionSelected = onOptionSelected
                         )
                     ) {
                         RadioButton(
                             selected = (selectedOption == 3),
-                            onClick = { onOptionSelected(3) })
+                            onClick = { if (submitText == "Submit") onOptionSelected(3) })
                         Text(question.c)
                     }
                 }
@@ -197,12 +200,13 @@ class GameActivity : ComponentActivity() {
                             index = 4,
                             submitText = submitText,
                             selectedOption = selectedOption,
+                            answer = question.ans,
                             onOptionSelected = onOptionSelected
                         )
                     ) {
                         RadioButton(
                             selected = (selectedOption == 4),
-                            onClick = { onOptionSelected(4) })
+                            onClick = { if (submitText == "Submit") onOptionSelected(4) })
                         Text(question.d)
                     }
                 }
@@ -273,16 +277,20 @@ class GameActivity : ComponentActivity() {
         index: Int,
         submitText: String,
         selectedOption: Int,
+        answer: Int,
         onOptionSelected: (Int) -> Unit
     ): Modifier {
         return Modifier
             .clip(RoundedCornerShape(8.dp))
             .selectable(
                 selected = (selectedOption == index),
-                onClick = { onOptionSelected(index) })
+                onClick = { if (submitText == "Submit") onOptionSelected(index) })
             .fillMaxWidth()
             .background(
-                if (selectedOption == index && submitText == "Next") Green else if (selectedOption == index && submitText == "Back") Red else MaterialTheme.colors.background
+                if (selectedOption == index && submitText == "Next") Green
+                else if (selectedOption == index && submitText == "Back") Red
+                else if (selectedOption != index && index == answer && submitText == "Back") Green
+                else MaterialTheme.colors.background
             )
     }
 
