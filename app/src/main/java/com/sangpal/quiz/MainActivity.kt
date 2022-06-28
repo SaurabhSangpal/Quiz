@@ -5,10 +5,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.Button
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -36,10 +36,6 @@ class MainActivity : ComponentActivity() {
                             .height(40.dp)
                         Button(onClick = { startGame() }, modifier = btnModifier) {
                             Text("Start Game")
-                        }
-                        Spacer(modifier = Modifier.height(30.dp))
-                        Button(onClick = {}, modifier = btnModifier) {
-                            Text("Settings")
                         }
                         Spacer(modifier = Modifier.height(30.dp))
                         Button(onClick = {}, modifier = btnModifier) {
