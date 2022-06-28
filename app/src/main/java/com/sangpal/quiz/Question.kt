@@ -1,6 +1,7 @@
 package com.sangpal.quiz
 
 import kotlinx.serialization.Serializable
+import kotlin.random.Random
 
 // A is 1, B is 2, C is 3, D is 4, ans points to the index of the option.
 @Serializable
@@ -37,18 +38,18 @@ class AllQuestions(
 
     fun getQuestionByLvl(level: Int): Question {
         when (level) {
-            1 -> return l1[0]
-            2 -> return l2[0]
-            3 -> return l3[0]
-            4 -> return l4[0]
-            5 -> return l5[0]
-            6 -> return l6[0]
-            7 -> return l7[0]
-            8 -> return l8[0]
-            9 -> return l9[0]
-            10 -> return l10[0]
-            11 -> return l11[0]
-            12 -> return l12[0]
+            1 -> return getRandomQuestion(l1)
+            2 -> return getRandomQuestion(l2)
+            3 -> return getRandomQuestion(l3)
+            4 -> return getRandomQuestion(l4)
+            5 -> return getRandomQuestion(l5)
+            6 -> return getRandomQuestion(l6)
+            7 -> return getRandomQuestion(l7)
+            8 -> return getRandomQuestion(l8)
+            9 -> return getRandomQuestion(l9)
+            10 -> return getRandomQuestion(l10)
+            11 -> return getRandomQuestion(l11)
+            12 -> return getRandomQuestion(l12)
         }
 
         throw IndexOutOfBoundsException()
@@ -71,5 +72,10 @@ class AllQuestions(
         }
 
         throw IndexOutOfBoundsException()
+    }
+
+    private fun getRandomQuestion(list: List<Question>): Question {
+        val rand = Random.nextInt(0, list.size)
+        return list[rand]
     }
 }
