@@ -25,7 +25,6 @@ import androidx.compose.ui.unit.dp
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.sangpal.quiz.ui.theme.Gradient
 import com.sangpal.quiz.ui.theme.Green
 import com.sangpal.quiz.ui.theme.QuizTheme
 import com.sangpal.quiz.ui.theme.Red
@@ -37,8 +36,10 @@ class GameActivity : ComponentActivity() {
     private lateinit var allQuestions: AllQuestions
     private var timer: CountDownTimer? = null
 
-    private var currentLevel = 1;
-    private var hasBeenPaused = false;
+    private var currentLevel = 1
+    private var hasBeenPaused = false
+
+    private var timeSaved: Int = 0
 
     @OptIn(ExperimentalSerializationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,10 +103,13 @@ class GameActivity : ComponentActivity() {
         val (time, onTimeChange) = remember { mutableStateOf(60) }
         val (timerStarted, onTimerStarted) = remember { mutableStateOf(false) }
 
+        var remainingTime = 0
+
         if (timer == null) {
             timer = object : CountDownTimer(60000, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
-                    onTimeChange((millisUntilFinished / 1000).toInt())
+                    remainingTime = (millisUntilFinished / 1000).toInt()
+                    onTimeChange(remainingTime)
                 }
 
                 override fun onFinish() {
@@ -113,7 +117,7 @@ class GameActivity : ComponentActivity() {
                 }
             }
         }
-        if (!timerStarted) {
+        if (!timerStarted && submitText == "Submit") {
             timer?.start()
             onTimerStarted(true)
         }
@@ -218,15 +222,10 @@ class GameActivity : ComponentActivity() {
             ) {
                 Button(onClick = {
                     if (submitText == "Next") {
-                        val chime = MediaPlayer.create(baseContext, R.raw.shooting_star_chime)
-                        chime.start()
-                        chime.release()
                         onScoreChange(allQuestions.getScoreByLvl(currentLevel))
                         currentLevel++
                         if (currentLevel >= AllQuestions.TOTAL_LEVELS) {
-                            val intent = Intent(baseContext, GameOverActivity::class.java)
-                            intent.putExtra("score", score)
-                            startActivity(intent)
+                            loadGameOverActivity(score)
                             return@Button
                         }
                         onOptionSelected(-1)
@@ -238,15 +237,28 @@ class GameActivity : ComponentActivity() {
                         return@Button
                     }
                     if (selectedOption == question.ans) {
+                        val chime = MediaPlayer.create(baseContext, R.raw.shooting_star_chime)
+                        chime.start()
+                        chime.setOnCompletionListener { chime.release() }
                         onSubmitTextChange("Next")
                     } else {
                         onSubmitTextChange("Back")
                     }
+                    timeSaved += remainingTime
+                    timer?.cancel()
+                    onTimerStarted(false)
                 }, enabled = selectedOption != -1) {
                     Text(submitText)
                 }
             }
         }
+    }
+
+    private fun loadGameOverActivity(score: Int) {
+        val intent = Intent(baseContext, GameOverActivity::class.java)
+        intent.putExtra("score", score)
+        intent.putExtra("timeSaved", timeSaved)
+        startActivity(intent)
     }
 
     @Composable

@@ -1,6 +1,5 @@
 package com.sangpal.quiz.ui.theme
 
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 val Orange500 = Color(0xFFF48200)
@@ -9,5 +8,3 @@ val Yellow200 = Color(0xFFFFC17A)
 val Grey = Color(0xFF242424)
 val Green = Color(0xFF4EFC3F)
 val Red = Color(0xFFFC3F3F)
-
-val Gradient = Brush.verticalGradient(listOf(Orange500, Orange400))
