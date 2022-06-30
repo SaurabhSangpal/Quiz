@@ -4,14 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -19,22 +20,35 @@ import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.OnUserEarnedRewardListener
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.android.gms.ads.rewarded.RewardItem
+import com.google.android.gms.ads.rewarded.RewardedAd
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import com.sangpal.quiz.ui.theme.QuizTheme
+import kotlinx.coroutines.launch
 
 class GameOverActivity : ComponentActivity() {
     private var score: Int = 0
     private var timeSaved: Int = 0
-    var mAdIsLoading: Boolean = false
+    private var level: Int = 0
+
+    var mIsInterstitialLoading: Boolean = false
     var mInterstitialAd: InterstitialAd? = null
+
+    var mIsRewardedLoading: Boolean = false
+    var mRewardedAd: RewardedAd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         score = intent.getIntExtra("score", 0)
         timeSaved = intent.getIntExtra("timeSaved", 0)
-        mAdIsLoading = true
+        level = intent.getIntExtra("level", 0)
+        mIsInterstitialLoading = true
         loadInterstitialAd()
+        mIsRewardedLoading = true
+        loadRewardedAd()
         setContent {
             QuizTheme {
                 // A surface container using the 'background' color from the theme
@@ -50,6 +64,9 @@ class GameOverActivity : ComponentActivity() {
 
     @Composable
     private fun DisplayGameOver() {
+        val snackState = remember { SnackbarHostState() }
+        val coroutineScope = rememberCoroutineScope()
+        SnackbarHost(hostState = snackState)
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
@@ -62,18 +79,34 @@ class GameOverActivity : ComponentActivity() {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                Text(text = "Score: ")
+                Text("Score: ")
                 Text(score.toString())
             }
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                Text(text = "Time Saved: ")
+                Text("Time Saved: ")
                 Text("$timeSaved seconds")
             }
             Spacer(modifier = Modifier.size(50.dp))
-            Button(onClick = { loadMainMenu() }) {
+            Button(onClick = {
+                if (mIsRewardedLoading) {
+                    coroutineScope.launch { snackState.showSnackbar("Loading... Please retry in a moment.") }
+                } else {
+                    retryLevel()
+                }
+            }) {
+                Row {
+                    Image(painterResource(R.drawable.featured_video), "Share Icon")
+                    Spacer(modifier = Modifier.size(10.dp))
+                    Text("Try Again")
+                }
+            }
+            Spacer(modifier = Modifier.size(50.dp))
+            Button(onClick = {
+                loadMainMenu()
+            }) {
                 Text("Main Menu")
             }
         }
@@ -83,14 +116,18 @@ class GameOverActivity : ComponentActivity() {
             verticalArrangement = Arrangement.Bottom,
             horizontalAlignment = Alignment.End
         ) {
-            Button(onClick = { /*TODO*/ }) {
-                Text("Share")
+            Button(onClick = { shareScore() }) {
+                Row {
+                    Image(painterResource(R.drawable.share), "Share Icon")
+                    Spacer(modifier = Modifier.size(10.dp))
+                    Text("Share")
+                }
             }
         }
     }
 
     private fun loadMainMenu() {
-        if (mAdIsLoading)
+        if (mIsInterstitialLoading)
             return
         if (mInterstitialAd != null)
             mInterstitialAd?.show(this)
@@ -100,21 +137,48 @@ class GameOverActivity : ComponentActivity() {
         }
     }
 
+    private fun retryLevel() {
+        if (mIsRewardedLoading)
+            return
+        if (mRewardedAd != null) {
+            mRewardedAd?.show(this, object : OnUserEarnedRewardListener {
+                override fun onUserEarnedReward(rewardItem: RewardItem) {
+                    var rewardAmount = rewardItem.amount
+                    val intent = Intent(baseContext, GameActivity::class.java)
+                    intent.putExtra("level", level)
+                    // TODO: Add additional data to allow continuing game.
+                    startActivity(intent)
+                }
+            })
+        }
+    }
+
+    private fun shareScore() {
+        val intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "I scored $score in quiz. Can you beat my score?")
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(intent, null)
+        startActivity(shareIntent)
+    }
+
     private fun loadInterstitialAd() {
         var adRequest = AdRequest.Builder().build()
         InterstitialAd.load(
             this,
-            "ca-app-pub-3940256099942544/1033173712",
+            INTERSTITIAL,
             adRequest,
             object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
                     super.onAdFailedToLoad(adError)
-                    mAdIsLoading = false
+                    mIsInterstitialLoading = false
                 }
 
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
                     super.onAdLoaded(interstitialAd)
-                    mAdIsLoading = false
+                    mIsInterstitialLoading = false
                     interstitialAd.fullScreenContentCallback =
                         object : FullScreenContentCallback() {
                             override fun onAdClicked() {
@@ -146,5 +210,35 @@ class GameOverActivity : ComponentActivity() {
                     mInterstitialAd = interstitialAd
                 }
             })
+    }
+
+    private fun loadRewardedAd() {
+        var request = AdRequest.Builder().build()
+
+        RewardedAd.load(this, REWARDED, request, object : RewardedAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                super.onAdFailedToLoad(adError)
+                mIsRewardedLoading = false
+                mRewardedAd = null
+            }
+
+            override fun onAdLoaded(rewardedAd: RewardedAd) {
+                super.onAdLoaded(rewardedAd)
+                mIsRewardedLoading = false
+                rewardedAd.fullScreenContentCallback =
+                    object : FullScreenContentCallback() {
+                        override fun onAdDismissedFullScreenContent() {
+                            super.onAdDismissedFullScreenContent()
+                            mRewardedAd = null
+                        }
+
+                        override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                            super.onAdFailedToShowFullScreenContent(adError)
+                            mRewardedAd = null
+                        }
+                    }
+                mRewardedAd = rewardedAd
+            }
+        })
     }
 }

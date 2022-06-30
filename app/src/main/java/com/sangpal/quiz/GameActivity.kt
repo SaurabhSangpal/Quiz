@@ -22,6 +22,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
+import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -40,10 +42,12 @@ class GameActivity : ComponentActivity() {
     private var hasBeenPaused = false
 
     private var timeSaved: Int = 0
+    private var remainingTime = 0
 
     @OptIn(ExperimentalSerializationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        currentLevel = intent.getIntExtra("level", 1)
         setContent {
             QuizTheme {
                 // A surface container using the 'background' color from the theme
@@ -51,13 +55,6 @@ class GameActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background,
                 ) {
-                    val adView = AdView(this)
-                    adView.setAdSize(AdSize.BANNER)
-                    adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
-//                    adView.adUnitId = "ca-app-pub-7498702741598425/9875318612"
-                    val request = AdRequest.Builder().build()
-                    adView.loadAd(request)
-
                     val file = assets.open("all_questions.json")
                     try {
                         allQuestions = Json.decodeFromStream<Root>(file).allQuestions
@@ -65,6 +62,20 @@ class GameActivity : ComponentActivity() {
                         return@Surface
                     }
                     DisplayQuestion(allQuestions)
+                    Column(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalArrangement = Arrangement.Bottom,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        AndroidView(factory = { context ->
+                            AdView(context).apply {
+                                setAdSize(AdSize.BANNER)
+                                adUnitId = BANNER
+                                loadAd(AdRequest.Builder().build())
+                                adListener = object : AdListener() {}
+                            }
+                        })
+                    }
                 }
             }
         }
@@ -97,13 +108,17 @@ class GameActivity : ComponentActivity() {
                 )
             )
         }
-        val (score, onScoreChange) = remember { mutableStateOf(0) }
+        val (score, onScoreChange) = remember {
+            mutableStateOf(
+                if (currentLevel > 1) allQuestions.getScoreByLvl(
+                    currentLevel - 1
+                ) else 0
+            )
+        }
         DisplayScore(score = score)
 
         val (time, onTimeChange) = remember { mutableStateOf(60) }
         val (timerStarted, onTimerStarted) = remember { mutableStateOf(false) }
-
-        var remainingTime = 0
 
         if (timer == null) {
             timer = object : CountDownTimer(60000, 1000) {
@@ -222,9 +237,8 @@ class GameActivity : ComponentActivity() {
             ) {
                 Button(onClick = {
                     if (submitText == "Next") {
-                        onScoreChange(allQuestions.getScoreByLvl(currentLevel))
                         currentLevel++
-                        if (currentLevel >= AllQuestions.TOTAL_LEVELS) {
+                        if (currentLevel > AllQuestions.TOTAL_LEVELS) {
                             loadGameOverActivity(score)
                             return@Button
                         }
@@ -233,18 +247,22 @@ class GameActivity : ComponentActivity() {
                         onQuestionChange(allQuestions.getQuestionByLvl(currentLevel))
                         return@Button
                     } else if (submitText == "Back") {
-                        loadMainMenu()
+                        loadGameOverActivity(score)
                         return@Button
                     }
                     if (selectedOption == question.ans) {
-                        val chime = MediaPlayer.create(baseContext, R.raw.shooting_star_chime)
+                        val chime = MediaPlayer.create(baseContext, R.raw.correct)
                         chime.start()
                         chime.setOnCompletionListener { chime.release() }
+                        onScoreChange(allQuestions.getScoreByLvl(currentLevel))
+                        timeSaved += remainingTime
                         onSubmitTextChange("Next")
                     } else {
+                        val chime = MediaPlayer.create(baseContext, R.raw.incorrect)
+                        chime.start()
+                        chime.setOnCompletionListener { chime.release() }
                         onSubmitTextChange("Back")
                     }
-                    timeSaved += remainingTime
                     timer?.cancel()
                     onTimerStarted(false)
                 }, enabled = selectedOption != -1) {
@@ -256,6 +274,7 @@ class GameActivity : ComponentActivity() {
 
     private fun loadGameOverActivity(score: Int) {
         val intent = Intent(baseContext, GameOverActivity::class.java)
+        intent.putExtra("level", currentLevel)
         intent.putExtra("score", score)
         intent.putExtra("timeSaved", timeSaved)
         startActivity(intent)
