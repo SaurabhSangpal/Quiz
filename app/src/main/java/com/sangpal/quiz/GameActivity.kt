@@ -44,10 +44,15 @@ class GameActivity : ComponentActivity() {
     private var timeSaved: Int = 0
     private var remainingTime = 0
 
+    private var canTryAgain: Boolean = true
+
     @OptIn(ExperimentalSerializationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         currentLevel = intent.getIntExtra("level", 1)
+        canTryAgain = intent.getBooleanExtra("canTryAgain", true)
+
         setContent {
             QuizTheme {
                 // A surface container using the 'background' color from the theme
@@ -61,6 +66,7 @@ class GameActivity : ComponentActivity() {
                     } catch (e: Exception) {
                         return@Surface
                     }
+                    file.close()
                     DisplayQuestion(allQuestions)
                     Column(
                         modifier = Modifier.fillMaxWidth(),
@@ -128,7 +134,7 @@ class GameActivity : ComponentActivity() {
                 }
 
                 override fun onFinish() {
-                    TODO("Not yet implemented")
+                    loadGameOverActivity(score)
                 }
             }
         }
@@ -277,6 +283,7 @@ class GameActivity : ComponentActivity() {
         intent.putExtra("level", currentLevel)
         intent.putExtra("score", score)
         intent.putExtra("timeSaved", timeSaved)
+        intent.putExtra("canTryAgain", canTryAgain)
         startActivity(intent)
     }
 

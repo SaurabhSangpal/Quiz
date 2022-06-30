@@ -33,6 +33,7 @@ class GameOverActivity : ComponentActivity() {
     private var score: Int = 0
     private var timeSaved: Int = 0
     private var level: Int = 0
+    private var canTryAgain: Boolean = true
 
     var mIsInterstitialLoading: Boolean = false
     var mInterstitialAd: InterstitialAd? = null
@@ -42,9 +43,12 @@ class GameOverActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         score = intent.getIntExtra("score", 0)
         timeSaved = intent.getIntExtra("timeSaved", 0)
         level = intent.getIntExtra("level", 0)
+        canTryAgain = intent.getBooleanExtra("canTryAgain", true)
+
         mIsInterstitialLoading = true
         loadInterstitialAd()
         mIsRewardedLoading = true
@@ -96,7 +100,7 @@ class GameOverActivity : ComponentActivity() {
                 } else {
                     retryLevel()
                 }
-            }) {
+            }, enabled = canTryAgain) {
                 Row {
                     Image(painterResource(R.drawable.featured_video), "Share Icon")
                     Spacer(modifier = Modifier.size(10.dp))
@@ -146,6 +150,7 @@ class GameOverActivity : ComponentActivity() {
                     var rewardAmount = rewardItem.amount
                     val intent = Intent(baseContext, GameActivity::class.java)
                     intent.putExtra("level", level)
+                    intent.putExtra("canTryAgain", false)
                     // TODO: Add additional data to allow continuing game.
                     startActivity(intent)
                 }
