@@ -100,17 +100,17 @@ class GameOverActivity : ComponentActivity() {
                 } else {
                     retryLevel()
                 }
-            }, enabled = canTryAgain) {
+            }, enabled = canTryAgain, modifier = Modifier.width(130.dp).height(40.dp)) {
                 Row {
                     Image(painterResource(R.drawable.featured_video), "Share Icon")
-                    Spacer(modifier = Modifier.size(10.dp))
+                    Spacer(modifier = Modifier.size(6.dp))
                     Text("Try Again")
                 }
             }
-            Spacer(modifier = Modifier.size(50.dp))
+            Spacer(modifier = Modifier.size(25.dp))
             Button(onClick = {
                 loadMainMenu()
-            }) {
+            }, modifier = Modifier.width(130.dp).height(40.dp)) {
                 Text("Main Menu")
             }
         }
@@ -120,10 +120,10 @@ class GameOverActivity : ComponentActivity() {
             verticalArrangement = Arrangement.Bottom,
             horizontalAlignment = Alignment.End
         ) {
-            Button(onClick = { shareScore() }) {
+            Button(onClick = { shareScore() }, modifier = Modifier.width(110.dp).height(40.dp)) {
                 Row {
                     Image(painterResource(R.drawable.share), "Share Icon")
-                    Spacer(modifier = Modifier.size(10.dp))
+                    Spacer(modifier = Modifier.size(6.dp))
                     Text("Share")
                 }
             }
