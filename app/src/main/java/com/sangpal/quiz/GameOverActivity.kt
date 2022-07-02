@@ -75,7 +75,7 @@ class GameOverActivity : ComponentActivity() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            val gameOverText = if (score == 1000000) "Game Complete!" else "Game Over"
+            val gameOverText = if (score == AllQuestions.MAX_SCORE) "Game Complete!" else "Game Over"
             Text(
                 gameOverText, fontWeight = FontWeight.Bold, fontSize = 30.sp
             )

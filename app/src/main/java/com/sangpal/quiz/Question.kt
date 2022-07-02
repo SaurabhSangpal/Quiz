@@ -34,6 +34,7 @@ class AllQuestions(
 ) {
     companion object {
         const val TOTAL_LEVELS = 12
+        const val MAX_SCORE = 1000000
     }
 
     fun getQuestionByLvl(level: Int): Question {
