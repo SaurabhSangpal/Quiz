@@ -295,7 +295,7 @@ class GameActivity : ComponentActivity() {
             horizontalArrangement = Arrangement.End
         ) {
             val st = score.toString()
-            Text("$ $st")
+            Text("Score: $st")
         }
     }
 
