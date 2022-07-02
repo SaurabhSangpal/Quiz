@@ -8,15 +8,151 @@
         "c": "Delhi",
         "d": "Kolkata",
         "ans": 3
+      },
+      {
+        "q": "What is the largest animal on Earth?",
+        "a": "Elephant",
+        "b": "Blue Whale",
+        "c": "Whale Shark",
+        "d": "Colossal Squid",
+        "ans": 2
+      },
+      {
+        "q": "Which country has the highest population in the world?",
+        "a": "United States",
+        "b": "Russia",
+        "c": "India",
+        "d": "China",
+        "ans": 4
+      },
+      {
+        "q": "What color is not a part of the Indian flag?",
+        "a": "Saffron",
+        "b": "Green",
+        "c": "White",
+        "d": "Yellow",
+        "ans": 4
+      },
+      {
+        "q": "What is the largest continent in the world?",
+        "a": "North America",
+        "b": "Antarctica",
+        "c": "Asia",
+        "d": "Australia",
+        "ans": 3
+      },
+      {
+        "q": "What is the capital city of Australia?",
+        "a": "Canberra",
+        "b": "Sydney",
+        "c": "Melbourne",
+        "d": "Adelaide",
+        "ans": 1
+      },
+      {
+        "q": "Which sport requires a shuttlecock?",
+        "a": "Tennis",
+        "b": "Cricket",
+        "c": "Badminton",
+        "d": "Squash",
+        "ans": 3
+      },
+      {
+        "q": "In which country will you find the Eiffel Tower?",
+        "a": "United Kingdom",
+        "b": "Australia",
+        "c": "France",
+        "d": "Belgium",
+        "ans": 3
+      },
+      {
+        "q": "What is the name of the tallest mountain on Earth?",
+        "a": "Mount Everest",
+        "b": "Kangchenjunga",
+        "c": "Cho Oyu",
+        "d": "Broad Peak",
+        "ans": 1
+      },
+      {
+        "q": "The planet Mars is also known as",
+        "a": "The Blue Planet",
+        "b": "The Red Planet",
+        "c": "The Black Planet",
+        "d": "The Orange Planet",
+        "ans": 2
+      },
+      {
+        "q": "How many days are there in a year?",
+        "a": "296",
+        "b": "365",
+        "c": "350",
+        "d": "320",
+        "ans": 2
+      },
+      {
+        "q": "How many colors are present in the rainbow?",
+        "a": "9",
+        "b": "6",
+        "c": "11",
+        "d": "7",
+        "ans": 4
+      },
+      {
+        "q": "How many continents are there on Earth?",
+        "a": "4",
+        "b": "6",
+        "c": "7",
+        "d": "8",
+        "ans": 3
+      },
+      {
+        "q": "How many letters are present in the English alphabet?",
+        "a": "26",
+        "b": "24",
+        "c": "25",
+        "d": "27",
+        "ans": 1
       }
     ],
     "l2": [
       {
-        "q": "What is the capital of India?",
-        "a": "Mumbai",
-        "b": "Pune",
-        "c": "Delhi",
-        "d": "Kolkata",
+        "q": "How many cards does a pack of cards contain (without jokers)?",
+        "a": "56",
+        "b": "52",
+        "c": "48",
+        "d": "51",
+        "ans": 2
+      },
+      {
+        "q": "Which animal lays the largest egg?",
+        "a": "Ostrich",
+        "b": "Kiwi",
+        "c": "Crow",
+        "d": "Swallow",
+        "ans": 1
+      },
+      {
+        "q": "Who discovered the theory of gravitation?",
+        "a": "Albert Einstein",
+        "b": "David Hilbert",
+        "c": "Kip Thorne",
+        "d": "Isaac Newton",
+        "ans": 4
+      },
+      {
+        "q": "How many players are present in a football team?",
+        "a": "9",
+        "b": "11",
+        "c": "8",
+        "d": "10",
+        "ans": 2
+      },
+      {
+        "q": "How many months have 31 days?",
+        "a": "8",
+        "b": "6",
+        "c": "7",
+        "d": "9",
         "ans": 3
       }
     ],
