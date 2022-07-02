@@ -1,7 +1,6 @@
 package com.sangpal.quiz
 
 import kotlinx.serialization.Serializable
-import kotlin.random.Random
 
 // A is 1, B is 2, C is 3, D is 4, ans points to the index of the option.
 @Serializable
@@ -76,7 +75,7 @@ class AllQuestions(
     }
 
     private fun getRandomQuestion(list: List<Question>): Question {
-        val rand = Random.nextInt(0, list.size)
+        val rand = (list.indices).random()
         return list[rand]
     }
 }
