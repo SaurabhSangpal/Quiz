@@ -271,7 +271,7 @@ class GameActivity : ComponentActivity() {
                     }
                     timer?.cancel()
                     onTimerStarted(false)
-                }, enabled = selectedOption != -1) {
+                }, enabled = selectedOption != -1, modifier = Modifier.width(130.dp)) {
                     Text(submitText)
                 }
             }
