@@ -48,6 +48,8 @@ class GameOverActivity : ComponentActivity() {
         timeSaved = intent.getIntExtra("timeSaved", 0)
         level = intent.getIntExtra("level", 0)
         canTryAgain = intent.getBooleanExtra("canTryAgain", true)
+        if (score == AllQuestions.MAX_SCORE)
+            canTryAgain = false
 
         mIsInterstitialLoading = true
         loadInterstitialAd()
