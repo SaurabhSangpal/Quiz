@@ -128,6 +128,22 @@
         "c": "Pronghorn",
         "d": "Cheetah",
         "ans": 4
+      },
+      {
+        "q": "What does WWW stand for?",
+        "a": "World Wide Workstation",
+        "b": "World Wide Webspace",
+        "c": "World Wide Web",
+        "d": "Worldwide Web Workspace",
+        "ans": 3
+      },
+      {
+        "q": "What is the largest country by area in the world?",
+        "a": "China",
+        "b": "Brazil",
+        "c": "United States",
+        "d": "Russia",
+        "ans": 4
       }
     ],
     "l2": [
@@ -178,6 +194,22 @@
         "c": "7",
         "d": "9",
         "ans": 3
+      },
+      {
+        "q": "Who was the first female prime minister of India?",
+        "a": "Indira Gandhi",
+        "b": "Sheila Dikshit",
+        "c": "Mamata Banerjee",
+        "d": "Sushma Swaraj",
+        "ans": 1
+      },
+      {
+        "q": "Where can you find the Colosseum?",
+        "a": "Milan",
+        "b": "Rome",
+        "c": "Palermo",
+        "d": "Florence",
+        "ans": 2
       }
     ],
     "l3": [
@@ -204,6 +236,30 @@
         "c": "United Kingdom",
         "d": "Germany",
         "ans": 2
+      },
+      {
+        "q": "What is the largest desert in the world?",
+        "a": "Arabian Desert",
+        "b": "Arctic Desert",
+        "c": "Sahara Desert",
+        "d": "Antarctic Desert",
+        "ans": 4
+      },
+      {
+        "q": "What was the first film in the Marvel cinematic universe?",
+        "a": "The Incredible Hulk",
+        "b": "Iron Man",
+        "c": "Spider-Man",
+        "d": "Doctor Strange",
+        "ans": 2
+      },
+      {
+        "q": "What is the largest island in the world?",
+        "a": "Iceland",
+        "b": "United Kingdom",
+        "c": "Greenland",
+        "d": "Madagascar",
+        "ans": 3
       }
     ],
     "l4": [
@@ -230,6 +286,14 @@
         "c": "Val El",
         "d": "Val Vek",
         "ans": 1
+      },
+      {
+        "q": "What substance is hair made from?",
+        "a": "Kertain",
+        "b": "Keratin",
+        "c": "Keramine",
+        "d": "Kerafin",
+        "ans": 2
       }
     ],
     "l5": [
@@ -256,6 +320,22 @@
         "c": "Lake Ontario",
         "d": "Lake Michigan",
         "ans": 2
+      },
+      {
+        "q": "Who invented dynamite?",
+        "a": "Alfred Nobel",
+        "b": "Albert Einstein",
+        "c": "Carl Sagan",
+        "d": "Marie Curie",
+        "ans": 1
+      },
+      {
+        "q": "Who discovered penicillin?",
+        "a": "Cesar Milstein",
+        "b": "Paul Ehrlich",
+        "c": "Joseph Lister",
+        "d": "Alexander Fleming",
+        "ans": 4
       }
     ],
     "l6": [
@@ -282,15 +362,47 @@
         "c": "Green",
         "d": "Blue",
         "ans": 4
-      }
-    ],
-    "l7": [
+      },
       {
         "q": "What is the only mammal capable of true flight?",
         "a": "Bald Eagle",
         "b": "Bat",
         "c": "Flying Squirrel",
         "d": "Colugo",
+        "ans": 2
+      },
+      {
+        "q": "What is the spiciest chilly in the world?",
+        "a": "Red Savina Habanero",
+        "b": "Bhut Jolokia",
+        "c": "Trinidad Moruga Scorpion",
+        "d": "Carolina Reaper",
+        "ans": 4
+      },
+      {
+        "q": "What is the official language of Cambodia?",
+        "a": "Cham",
+        "b": "Tumpoon",
+        "c": "Khmer",
+        "d": "French",
+        "ans": 3
+      }
+    ],
+    "l7": [
+      {
+        "q": "How many time zones are there in Russia?",
+        "a": "1",
+        "b": "3",
+        "c": "11",
+        "d": "6",
+        "ans": 3
+      },
+      {
+        "q": "Who discovered Halley's comet?",
+        "a": "Edward Halley",
+        "b": "Edmond Halley",
+        "c": "Albert Halley",
+        "d": "Alexander Halley",
         "ans": 2
       }
     ],
@@ -328,6 +440,14 @@
         "c": "2nd Tuesday of Oct",
         "d": "3rd Monday of Oct",
         "ans": 1
+      },
+      {
+        "q": "What is Shakespeare's shortest play?",
+        "a": "Othello",
+        "b": "The Tempest",
+        "c": "Macbeth",
+        "d": "The Comedy of Errors",
+        "ans": 4
       }
     ],
     "l10": [
