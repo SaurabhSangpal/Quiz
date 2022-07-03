@@ -1,4 +1,4 @@
-package com.sangpal.quiz
+package `in`.stellargames.quizly
 
 // All of these ids are test ids - to be replaced at time of final build.
 const val BANNER ="ca-app-pub-3940256099942544/6300978111"

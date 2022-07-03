@@ -1,4 +1,4 @@
-package com.sangpal.quiz
+package `in`.stellargames.quizly
 
 import kotlinx.serialization.Serializable
 

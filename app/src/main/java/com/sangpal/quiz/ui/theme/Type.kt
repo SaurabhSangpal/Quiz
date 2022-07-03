@@ -1,4 +1,4 @@
-package com.sangpal.quiz.ui.theme
+package `in`.stellargames.quizly.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

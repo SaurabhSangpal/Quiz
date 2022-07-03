@@ -1,4 +1,4 @@
-package com.sangpal.quiz
+package `in`.stellargames.quizly
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.android.gms.ads.MobileAds
-import com.sangpal.quiz.ui.theme.QuizTheme
+import `in`.stellargames.quizly.ui.theme.QuizTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

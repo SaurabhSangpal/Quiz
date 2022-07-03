@@ -1,4 +1,4 @@
-package com.sangpal.quiz
+package `in`.stellargames.quizly
 
 import android.content.Intent
 import android.os.Bundle
@@ -26,7 +26,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
-import com.sangpal.quiz.ui.theme.QuizTheme
+import `in`.stellargames.quizly.ui.theme.QuizTheme
 import kotlinx.coroutines.launch
 
 class GameOverActivity : ComponentActivity() {

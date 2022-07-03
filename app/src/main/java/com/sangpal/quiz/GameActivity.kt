@@ -1,4 +1,4 @@
-package com.sangpal.quiz
+package `in`.stellargames.quizly
 
 import android.content.Intent
 import android.media.MediaPlayer
@@ -27,9 +27,9 @@ import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.sangpal.quiz.ui.theme.Green
-import com.sangpal.quiz.ui.theme.QuizTheme
-import com.sangpal.quiz.ui.theme.Red
+import `in`.stellargames.quizly.ui.theme.Green
+import `in`.stellargames.quizly.ui.theme.QuizTheme
+import `in`.stellargames.quizly.ui.theme.Red
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream

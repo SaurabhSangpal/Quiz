@@ -1,4 +1,4 @@
-package com.sangpal.quiz.ui.theme
+package `in`.stellargames.quizly.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
