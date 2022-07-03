@@ -77,7 +77,8 @@ class GameOverActivity : ComponentActivity() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            val gameOverText = if (score == AllQuestions.MAX_SCORE) "Game Complete!" else "Game Over"
+            val gameOverText =
+                if (score == AllQuestions.MAX_SCORE) "Game Complete!" else "Game Over"
             Text(
                 gameOverText, fontWeight = FontWeight.Bold, fontSize = 30.sp
             )
@@ -96,13 +97,19 @@ class GameOverActivity : ComponentActivity() {
                 Text("$timeSaved seconds")
             }
             Spacer(modifier = Modifier.size(50.dp))
-            Button(onClick = {
-                if (mIsRewardedLoading) {
-                    coroutineScope.launch { snackState.showSnackbar("Loading... Please retry in a moment.") }
-                } else {
-                    retryLevel()
-                }
-            }, enabled = canTryAgain, modifier = Modifier.width(130.dp).height(40.dp)) {
+            Button(
+                onClick = {
+                    if (mIsRewardedLoading) {
+                        coroutineScope.launch { snackState.showSnackbar("Loading... Please retry in a moment.") }
+                    } else if (mRewardedAd == null) {
+                        coroutineScope.launch { snackState.showSnackbar("Failed to load ad. Please retry after checking your internet connection.") }
+                    } else {
+                        retryLevel()
+                    }
+                }, enabled = canTryAgain, modifier = Modifier
+                    .width(130.dp)
+                    .height(40.dp)
+            ) {
                 Row {
                     Image(painterResource(R.drawable.featured_video), "Share Icon")
                     Spacer(modifier = Modifier.size(6.dp))
@@ -110,9 +117,17 @@ class GameOverActivity : ComponentActivity() {
                 }
             }
             Spacer(modifier = Modifier.size(25.dp))
-            Button(onClick = {
-                loadMainMenu()
-            }, modifier = Modifier.width(130.dp).height(40.dp)) {
+            Button(
+                onClick = {
+                    if (mIsInterstitialLoading) {
+                        coroutineScope.launch { snackState.showSnackbar("Loading... Please retry in a moment.") }
+                    } else {
+                        loadMainMenu()
+                    }
+                }, modifier = Modifier
+                    .width(130.dp)
+                    .height(40.dp)
+            ) {
                 Text("Main Menu")
             }
         }
@@ -122,7 +137,11 @@ class GameOverActivity : ComponentActivity() {
             verticalArrangement = Arrangement.Bottom,
             horizontalAlignment = Alignment.End
         ) {
-            Button(onClick = { shareScore() }, modifier = Modifier.width(110.dp).height(40.dp)) {
+            Button(
+                onClick = { shareScore() }, modifier = Modifier
+                    .width(110.dp)
+                    .height(40.dp)
+            ) {
                 Row {
                     Image(painterResource(R.drawable.share), "Share Icon")
                     Spacer(modifier = Modifier.size(6.dp))
@@ -133,8 +152,6 @@ class GameOverActivity : ComponentActivity() {
     }
 
     private fun loadMainMenu() {
-        if (mIsInterstitialLoading)
-            return
         if (mInterstitialAd != null)
             mInterstitialAd?.show(this)
         else {
@@ -144,26 +161,25 @@ class GameOverActivity : ComponentActivity() {
     }
 
     private fun retryLevel() {
-        if (mIsRewardedLoading)
-            return
-        if (mRewardedAd != null) {
-            mRewardedAd?.show(this, object : OnUserEarnedRewardListener {
-                override fun onUserEarnedReward(rewardItem: RewardItem) {
-                    var rewardAmount = rewardItem.amount
-                    val intent = Intent(baseContext, GameActivity::class.java)
-                    intent.putExtra("level", level)
-                    intent.putExtra("canTryAgain", false)
-                    // TODO: Add additional data to allow continuing game.
-                    startActivity(intent)
-                }
-            })
-        }
+        mRewardedAd?.show(this, object : OnUserEarnedRewardListener {
+            override fun onUserEarnedReward(rewardItem: RewardItem) {
+                var rewardAmount = rewardItem.amount
+                val intent = Intent(baseContext, GameActivity::class.java)
+                intent.putExtra("level", level)
+                intent.putExtra("canTryAgain", false)
+                // TODO: Add additional data to allow continuing game.
+                startActivity(intent)
+            }
+        })
     }
 
     private fun shareScore() {
         val intent = Intent().apply {
             action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT, "I scored $score in quiz. Can you beat my score?")
+            putExtra(
+                Intent.EXTRA_TEXT,
+                "I scored $score points in quiz and saved $timeSaved seconds. Can you beat my score?"
+            )
             type = "text/plain"
         }
 

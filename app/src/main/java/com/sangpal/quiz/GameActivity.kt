@@ -46,12 +46,16 @@ class GameActivity : ComponentActivity() {
 
     private var canTryAgain: Boolean = true
 
+    private var canPlayAudio: Boolean = true
+
     @OptIn(ExperimentalSerializationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         currentLevel = intent.getIntExtra("level", 1)
         canTryAgain = intent.getBooleanExtra("canTryAgain", true)
+
+        canPlayAudio = getSharedPreferences("quizprefs", MODE_PRIVATE).getBoolean("audio", true)
 
         setContent {
             QuizTheme {
@@ -257,16 +261,20 @@ class GameActivity : ComponentActivity() {
                         return@Button
                     }
                     if (selectedOption == question.ans) {
-                        val chime = MediaPlayer.create(baseContext, R.raw.correct)
-                        chime.start()
-                        chime.setOnCompletionListener { chime.release() }
+                        if (canPlayAudio) {
+                            val chime = MediaPlayer.create(baseContext, R.raw.correct)
+                            chime.start()
+                            chime.setOnCompletionListener { chime.release() }
+                        }
                         onScoreChange(allQuestions.getScoreByLvl(currentLevel))
                         timeSaved += remainingTime
                         onSubmitTextChange("Next")
                     } else {
-                        val chime = MediaPlayer.create(baseContext, R.raw.incorrect)
-                        chime.start()
-                        chime.setOnCompletionListener { chime.release() }
+                        if (canPlayAudio) {
+                            val chime = MediaPlayer.create(baseContext, R.raw.incorrect)
+                            chime.start()
+                            chime.setOnCompletionListener { chime.release() }
+                        }
                         onSubmitTextChange("Back")
                     }
                     timer?.cancel()
