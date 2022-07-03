@@ -112,6 +112,22 @@
         "c": "25",
         "d": "27",
         "ans": 1
+      },
+      {
+        "q": "How many stars are present on the national flag of the USA?",
+        "a": "48",
+        "b": "50",
+        "c": "52",
+        "d": "56",
+        "ans": 2
+      },
+      {
+        "q": "What is the fastest land animal?",
+        "a": "Horse",
+        "b": "Wildebeest",
+        "c": "Pronghorn",
+        "d": "Cheetah",
+        "ans": 4
       }
     ],
     "l2": [
@@ -122,6 +138,14 @@
         "c": "48",
         "d": "51",
         "ans": 2
+      },
+      {
+        "q": "In Black Panther, T'Challa is the King of what nation?",
+        "a": "Wakondo",
+        "b": "Wajimbe",
+        "c": "Wakanda",
+        "d": "Wakambe",
+        "ans": 3
       },
       {
         "q": "Which animal lays the largest egg?",
@@ -158,102 +182,246 @@
     ],
     "l3": [
       {
-        "q": "What is the capital of India?",
-        "a": "Mumbai",
-        "b": "Pune",
-        "c": "Delhi",
-        "d": "Kolkata",
+        "q": "What is the loudest animal on Earth?",
+        "a": "Lion",
+        "b": "Elephant",
+        "c": "Sperm Whale",
+        "d": "Blue Whale",
         "ans": 3
+      },
+      {
+        "q": "What does the Richter scale measure the magnitude of?",
+        "a": "Earthquakes",
+        "b": "Hurricanes",
+        "c": "Tornadoes",
+        "d": "Nuclear Radiation",
+        "ans": 1
+      },
+      {
+        "q": "Which country gifted the Statue of Liberty to the United States?",
+        "a": "Hungary",
+        "b": "France",
+        "c": "United Kingdom",
+        "d": "Germany",
+        "ans": 2
       }
     ],
     "l4": [
       {
-        "q": "What is the capital of India?",
-        "a": "Mumbai",
-        "b": "Pune",
-        "c": "Delhi",
-        "d": "Kolkata",
+        "q": "What is the only food that never expires?",
+        "a": "Pickles",
+        "b": "Rice",
+        "c": "Honey",
+        "d": "Soy Sauce",
         "ans": 3
+      },
+      {
+        "q": "On which planet is a year longer than a day?",
+        "a": "Earth",
+        "b": "Venus",
+        "c": "Mars",
+        "d": "Mercury",
+        "ans": 2
+      },
+      {
+        "q": "What is Superman's real name?",
+        "a": "Kal El",
+        "b": "Kal Ek",
+        "c": "Val El",
+        "d": "Val Vek",
+        "ans": 1
       }
     ],
     "l5": [
       {
-        "q": "What is the capital of India?",
-        "a": "Mumbai",
-        "b": "Pune",
-        "c": "Delhi",
-        "d": "Kolkata",
+        "q": "What's the name of the outermost layer of skin?",
+        "a": "Subcutaneous Tissue",
+        "b": "Dermis",
+        "c": "Epidermis",
+        "d": "Hypodermis",
         "ans": 3
+      },
+      {
+        "q": "Which gas is formed when a Hydrogen bomb is detonated?",
+        "a": "Neon",
+        "b": "Argon",
+        "c": "Helium",
+        "d": "Nitrogen",
+        "ans": 3
+      },
+      {
+        "q": "Which of the following is not a part of the Great Lakes?",
+        "a": "Lake Superior",
+        "b": "Lake Washington",
+        "c": "Lake Ontario",
+        "d": "Lake Michigan",
+        "ans": 2
       }
     ],
     "l6": [
       {
-        "q": "What is the capital of India?",
-        "a": "Mumbai",
-        "b": "Pune",
-        "c": "Delhi",
-        "d": "Kolkata",
-        "ans": 3
+        "q": "What is the fastest flying bird?",
+        "a": "Eurasian Hobby",
+        "b": "Gyrfalcon",
+        "c": "Golden Eagle",
+        "d": "Peregrine Falcon",
+        "ans": 4
+      },
+      {
+        "q": "What is the most venomous spider?",
+        "a": "Brazilian Wandering Spider",
+        "b": "Wolf Spider",
+        "c": "Goliath Birdeater Tarantula",
+        "d": "Black Widow Spider",
+        "ans": 1
+      },
+      {
+        "q": "What color is spider blood?",
+        "a": "Red",
+        "b": "Black",
+        "c": "Green",
+        "d": "Blue",
+        "ans": 4
       }
     ],
     "l7": [
       {
-        "q": "What is the capital of India?",
-        "a": "Mumbai",
-        "b": "Pune",
-        "c": "Delhi",
-        "d": "Kolkata",
-        "ans": 3
+        "q": "What is the only mammal capable of true flight?",
+        "a": "Bald Eagle",
+        "b": "Bat",
+        "c": "Flying Squirrel",
+        "d": "Colugo",
+        "ans": 2
       }
     ],
     "l8": [
       {
-        "q": "What is the capital of India?",
-        "a": "Mumbai",
-        "b": "Pune",
-        "c": "Delhi",
-        "d": "Kolkata",
+        "q": "How many legs does a lobster have?",
+        "a": "8",
+        "b": "6",
+        "c": "10",
+        "d": "12",
         "ans": 3
+      },
+      {
+        "q": "Which country's flag features an eagle eating a snake?",
+        "a": "Lebanon",
+        "b": "Moldova",
+        "c": "Malaysia",
+        "d": "Mexico",
+        "ans": 4
       }
     ],
     "l9": [
       {
-        "q": "What is the capital of India?",
-        "a": "Mumbai",
-        "b": "Pune",
-        "c": "Delhi",
-        "d": "Kolkata",
-        "ans": 3
+        "q": "Which country has the most fresh water?",
+        "a": "India",
+        "b": "Brazil",
+        "c": "China",
+        "d": "Russia",
+        "ans": 2
+      },
+      {
+        "q": "When is Canada's Thanksgiving?",
+        "a": "2nd Monday of Oct",
+        "b": "1st Monday of Oct",
+        "c": "2nd Tuesday of Oct",
+        "d": "3rd Monday of Oct",
+        "ans": 1
       }
     ],
     "l10": [
       {
-        "q": "What is the capital of India?",
-        "a": "Mumbai",
-        "b": "Pune",
-        "c": "Delhi",
-        "d": "Kolkata",
+        "q": "Who won the first football world cup?",
+        "a": "Uruguay",
+        "b": "Brazil",
+        "c": "England",
+        "d": "France",
+        "ans": 1
+      },
+      {
+        "q": "What is the most commonly practiced religion of Mauritius?",
+        "a": "Islam",
+        "b": "Buddhism",
+        "c": "Christianity",
+        "d": "Hinduism",
+        "ans": 4
+      },
+      {
+        "q": "What is the oldest continuously inhabited city in the world?",
+        "a": "Athens",
+        "b": "Jerusalem",
+        "c": "Damascus",
+        "d": "Aleppo",
         "ans": 3
+      },
+      {
+        "q": "Who was the first woman in the Rock and Roll Hall of Fame?",
+        "a": "Diana Ross",
+        "b": "Aretha Franklin",
+        "c": "Bessie Smith",
+        "d": "Zola Taylor",
+        "ans": 2
       }
     ],
     "l11": [
       {
-        "q": "What is the capital of India?",
-        "a": "Mumbai",
-        "b": "Pune",
-        "c": "Delhi",
-        "d": "Kolkata",
+        "q": "Which country consumes the most chocolate per capita?",
+        "a": "Belgium",
+        "b": "Switzerland",
+        "c": "United States",
+        "d": "France",
+        "ans": 2
+      },
+      {
+        "q": "What is the capital of Paraguay?",
+        "a": "Hohenhau",
+        "b": "Curuguaty",
+        "c": "Filadelfia",
+        "d": "Asuncion",
+        "ans": 4
+      },
+      {
+        "q": "What nation celebrates its declaration of independence from Spain in 1898?",
+        "a": "The Philippines",
+        "b": "Indonesia",
+        "c": "Mexico",
+        "d": "Peru",
+        "ans": 1
+      },
+      {
+        "q": "Which public figure died on Halloween in 1926?",
+        "a": "Rudolph Valentino",
+        "b": "Bessie Coleman",
+        "c": "Harry Houdini",
+        "d": "Annie Oakley",
         "ans": 3
       }
     ],
     "l12": [
       {
-        "q": "What is the capital of India?",
-        "a": "Mumbai",
-        "b": "Pune",
-        "c": "Delhi",
-        "d": "Kolkata",
+        "q": "Who was the captain of the Titanic at the time of its sinking?",
+        "a": "William Adams",
+        "b": "James Barron",
+        "c": "Edward Smith",
+        "d": "John Barry",
         "ans": 3
+      },
+      {
+        "q": "Which country contains the Bible on its flag?",
+        "a": "Dominican Republic",
+        "b": "El Salvador",
+        "c": "Cameroon",
+        "d": "Jordan",
+        "ans": 1
+      },
+      {
+        "q": "Which Native American tribe took part in the first Thanksgiving Feast?",
+        "a": "Apache",
+        "b": "Catawba",
+        "c": "Cherokee",
+        "d": "Wampanoag",
+        "ans": 4
       }
     ]
   }
