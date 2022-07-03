@@ -3,6 +3,7 @@ package com.sangpal.quiz
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -35,7 +36,11 @@ class MainActivity : ComponentActivity() {
                             verticalArrangement = Arrangement.Center,
                             horizontalAlignment = Alignment.CenterHorizontally,
                         ) {
-                            Text("Quizly", fontWeight = FontWeight.Bold, fontSize = 40.sp)
+                            Text(
+                                getString(R.string.app_name),
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 40.sp
+                            )
                             Spacer(modifier = Modifier.size(300.dp))
                         }
                         Column(
@@ -58,13 +63,27 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     } else {
+                        // Custom back functionality to get out of settings panel.
+                        val callback = onBackPressedDispatcher.addCallback(object :
+                            OnBackPressedCallback(true) {
+                            override fun handleOnBackPressed() {
+                                if (showSettings.value) {
+                                    showSettings.value = false
+                                } else {
+                                    finish()
+                                }
+                            }
+                        })
                         Column(
                             modifier = Modifier.padding(
                                 10.dp
                             ), verticalArrangement = Arrangement.Bottom,
                             horizontalAlignment = Alignment.Start
                         ) {
-                            Button(onClick = { showSettings.value = false }, modifier = Modifier.width(100.dp)) {
+                            Button(
+                                onClick = { showSettings.value = false },
+                                modifier = Modifier.width(100.dp)
+                            ) {
                                 Text("Back")
                             }
                         }
@@ -77,7 +96,8 @@ class MainActivity : ComponentActivity() {
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.SpaceEvenly
                             ) {
-                                val audioEnabled = remember { mutableStateOf(prefs.getBoolean("audio", true)) }
+                                val audioEnabled =
+                                    remember { mutableStateOf(prefs.getBoolean("audio", true)) }
                                 Text("Play Audio")
                                 Checkbox(
                                     checked = audioEnabled.value,
