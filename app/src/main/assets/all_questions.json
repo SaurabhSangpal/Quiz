@@ -168,6 +168,22 @@
         "c": "Egypt",
         "d": "Israel",
         "ans": 3
+      },
+      {
+        "q": "Who was the first man on moon?",
+        "a": "Yuri Gagarin",
+        "b": "Buzz Aldrin",
+        "c": "Thomas Marshburn",
+        "d": "Neil Armstrong",
+        "ans": 4
+      },
+      {
+        "q": "Before independence, what was Bangladesh called?",
+        "a": "West Pakistan",
+        "b": "East Pakistan",
+        "c": "East Bengal",
+        "d": "East India",
+        "ans": 2
       }
     ],
     "l2": [
@@ -266,6 +282,22 @@
         "c": "Deepwater Coves",
         "d": "Unending Valley",
         "ans": 1
+      },
+      {
+        "q": "Who invented the telephone?",
+        "a": "Isaac Newton",
+        "b": "Albert Einstein",
+        "c": "Alexander Graham Bell",
+        "d": "Marie Curie",
+        "ans": 3
+      },
+      {
+        "q": "Who painted the Sistine Chapel?",
+        "a": "Leonardo da Vinci",
+        "b": "Pablo Picasso",
+        "c": "Claude Monet",
+        "d": "Michaelangelo",
+        "ans": 4
       }
     ],
     "l3": [
@@ -340,6 +372,30 @@
         "c": "France",
         "d": "Italy",
         "ans": 4
+      },
+      {
+        "q": "In which year was Mahatma Gandhi killed?",
+        "a": "1950",
+        "b": "1943",
+        "c": "1948",
+        "d": "1952",
+        "ans": 3
+      },
+      {
+        "q": "Who led the USSR from 1917-1922?",
+        "a": "Vladimir Lenin",
+        "b": "Joseph Stalin",
+        "c": "Karl Marx",
+        "d": "Vyacheslav Molotov",
+        "ans": 1
+      },
+      {
+        "q": "Where was Adolf Hitler born?",
+        "a": "Austria",
+        "b": "Germany",
+        "c": "Serbia",
+        "d": "Hungary",
+        "ans": 1
       }
     ],
     "l4": [
@@ -422,6 +478,38 @@
         "c": "7",
         "d": "9",
         "ans": 1
+      },
+      {
+        "q": "Which century did the French Revolution take place in?",
+        "a": "The 20th Century",
+        "b": "The 19th Century",
+        "c": "The 17th Century",
+        "d": "The 18th Century",
+        "ans": 4
+      },
+      {
+        "q": "Who painted the mural of “The Last Supper”?",
+        "a": "Vincent van Gogh",
+        "b": "Leonardo da Vinci",
+        "c": "Michelangelo",
+        "d": "Pablo Picasso",
+        "ans": 2
+      },
+      {
+        "q": "In which year did World War I begin?",
+        "a": "1914",
+        "b": "1921",
+        "c": "1919",
+        "d": "1917",
+        "ans": 1
+      },
+      {
+        "q": "In the 5,000 years of human history, what is the one disease that has been completely eradicated?",
+        "a": "Chicken Pox",
+        "b": "Influenza",
+        "c": "Small Pox",
+        "d": "Malaria",
+        "ans": 3
       }
     ],
     "l5": [
@@ -580,6 +668,22 @@
         "c": "1967",
         "d": "1963",
         "ans": 4
+      },
+      {
+        "q": "Who is known for running through the streets crying Eureka?",
+        "a": "Archimedes",
+        "b": "Pythagoras",
+        "c": "Euclid",
+        "d": "Appolonius",
+        "ans": 1
+      },
+      {
+        "q": "The Incan Empire is located in which modern-day country?",
+        "a": "Chile",
+        "b": "Peru",
+        "c": "Bolivia",
+        "d": "Panama",
+        "ans": 2
       }
     ],
     "l8": [
@@ -598,6 +702,14 @@
         "c": "Malaysia",
         "d": "Mexico",
         "ans": 4
+      },
+      {
+        "q": "The Peloponnesian War was fought between Athens and which state?",
+        "a": "Aegina",
+        "b": "Sparta",
+        "c": "Corinth",
+        "d": "Thebes",
+        "ans": 2
       }
     ],
     "l9": [
@@ -624,6 +736,14 @@
         "c": "Macbeth",
         "d": "The Comedy of Errors",
         "ans": 4
+      },
+      {
+        "q": "How many times has the Mona Lisa been stolen?",
+        "a": "2",
+        "b": "3",
+        "c": "1",
+        "d": "0",
+        "ans": 3
       }
     ],
     "l10": [
