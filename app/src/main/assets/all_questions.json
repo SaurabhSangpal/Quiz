@@ -144,6 +144,30 @@
         "c": "United States",
         "d": "Russia",
         "ans": 4
+      },
+      {
+        "q": "In which continent is USA located?",
+        "a": "South America",
+        "b": "North America",
+        "c": "East America",
+        "d": "Europe",
+        "ans": 2
+      },
+      {
+        "q": "What is the largest ocean in the world?",
+        "a": "Pacific Ocean",
+        "b": "Atlantic Ocean",
+        "c": "Antarctic Ocean",
+        "d": "Indian Ocean",
+        "ans": 1
+      },
+      {
+        "q": "What country are the Great Pyramids of Giza located in?",
+        "a": "Iran",
+        "b": "Lebanon",
+        "c": "Egypt",
+        "d": "Israel",
+        "ans": 3
       }
     ],
     "l2": [
@@ -210,6 +234,38 @@
         "c": "Palermo",
         "d": "Florence",
         "ans": 2
+      },
+      {
+        "q": "What is the capital of Canada?",
+        "a": "Victoria",
+        "b": "Halifax",
+        "c": "Toronto",
+        "d": "Ottawa",
+        "ans": 4
+      },
+      {
+        "q": "What is the name of the smallest country in the world?",
+        "a": "New Zealand",
+        "b": "Papua New Guinea",
+        "c": "The Vatican City",
+        "d": "Turkey",
+        "ans": 3
+      },
+      {
+        "q": "What is The Netherlands also known as?",
+        "a": "Holler",
+        "b": "Holland",
+        "c": "Vinland",
+        "d": "Denland",
+        "ans": 2
+      },
+      {
+        "q": "What is the name of the deepest point in Earth’s oceans?",
+        "a": "Mariana's Trench",
+        "b": "Marine Drive",
+        "c": "Deepwater Coves",
+        "d": "Unending Valley",
+        "ans": 1
       }
     ],
     "l3": [
@@ -260,6 +316,30 @@
         "c": "Greenland",
         "d": "Madagascar",
         "ans": 3
+      },
+      {
+        "q": "Which of the following is not a ocean?",
+        "a": "Indian Ocean",
+        "b": "Chinese Ocean",
+        "c": "Antarctic Ocean",
+        "d": "Arctic Ocean",
+        "ans": 2
+      },
+      {
+        "q": "How many countries are there in the United Kingdom?",
+        "a": "4",
+        "b": "1",
+        "c": "2",
+        "d": "3",
+        "ans": 1
+      },
+      {
+        "q": "In which country is the Leaning Tower of Pisa located?",
+        "a": "United Kingdom",
+        "b": "Hungary",
+        "c": "France",
+        "d": "Italy",
+        "ans": 4
       }
     ],
     "l4": [
@@ -294,6 +374,54 @@
         "c": "Keramine",
         "d": "Kerafin",
         "ans": 2
+      },
+      {
+        "q": "What does HTTP stand for?",
+        "a": "High Tech Text Protocol",
+        "b": "High Tech Transfer Protocol",
+        "c": "Hyper Transfer Text Protocol",
+        "d": "Hypertext Transfer Protocol",
+        "ans": 4
+      },
+      {
+        "q": "What is the longest river in Africa?",
+        "a": "Yellow River",
+        "b": "Amazon River",
+        "c": "The Nile",
+        "d": "Niger River",
+        "ans": 3
+      },
+      {
+        "q": "What is the name of the largest city in Australia?",
+        "a": "Brisbane",
+        "b": "Sydney",
+        "c": "Toronto",
+        "d": "Los Angeles",
+        "ans": 1
+      },
+      {
+        "q": "What type of leaf is on the Canadian flag?",
+        "a": "Clover",
+        "b": "Maple",
+        "c": "Olive",
+        "d": "Oak",
+        "ans": 2
+      },
+      {
+        "q": "In what ocean is the Bermuda Triangle located?",
+        "a": "Pacific Ocean",
+        "b": "Arctic Ocean",
+        "c": "Atlantic Ocean",
+        "d": "Indian Ocean",
+        "ans": 3
+      },
+      {
+        "q": "How many stars are present on the Australian flag?",
+        "a": "6",
+        "b": "5",
+        "c": "7",
+        "d": "9",
+        "ans": 1
       }
     ],
     "l5": [
@@ -336,6 +464,30 @@
         "c": "Joseph Lister",
         "d": "Alexander Fleming",
         "ans": 4
+      },
+      {
+        "q": "Peking Duck is the national dish of what country?",
+        "a": "Mongolia",
+        "b": "China",
+        "c": "Indonesia",
+        "d": "Thailand",
+        "ans": 2
+      },
+      {
+        "q": "Which continent is Cambodia located in?",
+        "a": "Asia",
+        "b": "Europe",
+        "c": "Africa",
+        "d": "South America",
+        "ans": 1
+      },
+      {
+        "q": "Where was the Lord of The Rings trilogy filmed?",
+        "a": "Australia",
+        "b": "United Kingdom",
+        "c": "New Zealand",
+        "d": "Germany",
+        "ans": 3
       }
     ],
     "l6": [
@@ -386,6 +538,22 @@
         "c": "Khmer",
         "d": "French",
         "ans": 3
+      },
+      {
+        "q": "How many time zones are there in the US?",
+        "a": "6",
+        "b": "7",
+        "c": "4",
+        "d": "3",
+        "ans": 1
+      },
+      {
+        "q": "How many U.S. presidents have been assassinated?",
+        "a": "2",
+        "b": "10",
+        "c": "8",
+        "d": "4",
+        "ans": 4
       }
     ],
     "l7": [
@@ -404,6 +572,14 @@
         "c": "Albert Halley",
         "d": "Alexander Halley",
         "ans": 2
+      },
+      {
+        "q": "In which year was John F. Kennedy assassinated?",
+        "a": "1960",
+        "b": "1968",
+        "c": "1967",
+        "d": "1963",
+        "ans": 4
       }
     ],
     "l8": [
