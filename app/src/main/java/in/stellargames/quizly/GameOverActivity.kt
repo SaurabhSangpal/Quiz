@@ -163,7 +163,7 @@ class GameOverActivity : ComponentActivity() {
     private fun retryLevel() {
         mRewardedAd?.show(this, object : OnUserEarnedRewardListener {
             override fun onUserEarnedReward(rewardItem: RewardItem) {
-                var rewardAmount = rewardItem.amount
+//                var rewardAmount = rewardItem.amount
                 val intent = Intent(baseContext, GameActivity::class.java)
                 intent.putExtra("level", level)
                 intent.putExtra("canTryAgain", false)

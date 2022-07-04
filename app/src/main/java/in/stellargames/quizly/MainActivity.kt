@@ -64,7 +64,7 @@ class MainActivity : ComponentActivity() {
                         }
                     } else {
                         // Custom back functionality to get out of settings panel.
-                        val callback = onBackPressedDispatcher.addCallback(object :
+                        onBackPressedDispatcher.addCallback(object :
                             OnBackPressedCallback(true) {
                             override fun handleOnBackPressed() {
                                 if (showSettings.value) {
