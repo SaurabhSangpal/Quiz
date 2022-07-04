@@ -104,6 +104,7 @@ class GameActivity : ComponentActivity() {
 
     private fun loadMainMenu() {
         val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("displayRules", true)
         startActivity(intent)
     }
 
