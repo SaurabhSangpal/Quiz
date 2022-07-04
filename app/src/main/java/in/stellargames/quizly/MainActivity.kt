@@ -76,80 +76,78 @@ class MainActivity : ComponentActivity() {
                                 Text("Back")
                             }
                         }
+                    } else if (!showSettings.value) {
+                        Column(
+                            modifier = Modifier.padding(10.dp),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                        ) {
+                            Text(
+                                getString(R.string.app_name),
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 40.sp
+                            )
+                            Spacer(modifier = Modifier.size(300.dp))
+                        }
+                        Column(
+                            modifier = Modifier.padding(10.dp),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            val btnModifier = Modifier
+                                .width(200.dp)
+                                .height(40.dp)
+                            Button(onClick = { startGame() }, modifier = btnModifier) {
+                                Text("Start Game")
+                            }
+                            Spacer(modifier = Modifier.height(30.dp))
+                            Button(
+                                onClick = { showSettings.value = true },
+                                modifier = btnModifier
+                            ) {
+                                Text("Settings")
+                            }
+                            Spacer(modifier = Modifier.height(30.dp))
+                            Button(
+                                onClick = { displayRules.value = true },
+                                modifier = btnModifier
+                            ) {
+                                Text("Rules")
+                            }
+                        }
                     } else {
-                        if (!showSettings.value) {
-                            Column(
-                                modifier = Modifier.padding(10.dp),
-                                verticalArrangement = Arrangement.Center,
-                                horizontalAlignment = Alignment.CenterHorizontally,
+                        Column(
+                            modifier = Modifier.padding(
+                                10.dp
+                            ), verticalArrangement = Arrangement.Bottom,
+                            horizontalAlignment = Alignment.Start
+                        ) {
+                            Button(
+                                onClick = { showSettings.value = false },
+                                modifier = Modifier.width(100.dp)
                             ) {
-                                Text(
-                                    getString(R.string.app_name),
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 40.sp
-                                )
-                                Spacer(modifier = Modifier.size(300.dp))
+                                Text("Back")
                             }
-                            Column(
-                                modifier = Modifier.padding(10.dp),
-                                verticalArrangement = Arrangement.Center,
-                                horizontalAlignment = Alignment.CenterHorizontally
+                        }
+                        Column(
+                            modifier = Modifier.padding(10.dp),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.SpaceEvenly
                             ) {
-                                val btnModifier = Modifier
-                                    .width(200.dp)
-                                    .height(40.dp)
-                                Button(onClick = { startGame() }, modifier = btnModifier) {
-                                    Text("Start Game")
-                                }
-                                Spacer(modifier = Modifier.height(30.dp))
-                                Button(
-                                    onClick = { showSettings.value = true },
-                                    modifier = btnModifier
-                                ) {
-                                    Text("Settings")
-                                }
-                                Spacer(modifier = Modifier.height(30.dp))
-                                Button(
-                                    onClick = { displayRules.value = true },
-                                    modifier = btnModifier
-                                ) {
-                                    Text("Rules")
-                                }
-                            }
-                        } else {
-                            Column(
-                                modifier = Modifier.padding(
-                                    10.dp
-                                ), verticalArrangement = Arrangement.Bottom,
-                                horizontalAlignment = Alignment.Start
-                            ) {
-                                Button(
-                                    onClick = { showSettings.value = false },
-                                    modifier = Modifier.width(100.dp)
-                                ) {
-                                    Text("Back")
-                                }
-                            }
-                            Column(
-                                modifier = Modifier.padding(10.dp),
-                                verticalArrangement = Arrangement.Center,
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.SpaceEvenly
-                                ) {
-                                    val audioEnabled =
-                                        remember { mutableStateOf(prefs.getBoolean("audio", true)) }
-                                    Text("Play Audio")
-                                    Checkbox(
-                                        checked = audioEnabled.value,
-                                        onCheckedChange = {
-                                            val state = prefs.getBoolean("audio", true)
-                                            prefs.edit().putBoolean("audio", !state).apply()
-                                            audioEnabled.value = !state
-                                        })
-                                }
+                                val audioEnabled =
+                                    remember { mutableStateOf(prefs.getBoolean("audio", true)) }
+                                Text("Play Audio")
+                                Checkbox(
+                                    checked = audioEnabled.value,
+                                    onCheckedChange = {
+                                        val state = prefs.getBoolean("audio", true)
+                                        prefs.edit().putBoolean("audio", !state).apply()
+                                        audioEnabled.value = !state
+                                    })
                             }
                         }
                     }
