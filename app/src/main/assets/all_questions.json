@@ -248,6 +248,54 @@
         "c": "Jupiter",
         "d": "Mars",
         "ans": 1
+      },
+      {
+        "q": "At what temperature does water boil?",
+        "a": "0 degree Celsius",
+        "b": "20 degree Celsius",
+        "c": "200 degree Celsius",
+        "d": "100 degree Celsius",
+        "ans": 4
+      },
+      {
+        "q": "At what temperature does water freeze?",
+        "a": "0 degree Celsius",
+        "b": "20 degree Celsius",
+        "c": "200 degree Celsius",
+        "d": "100 degree Celsius",
+        "ans": 1
+      },
+      {
+        "q": "Who discovered the theory of gravitation?",
+        "a": "Carl Sagan",
+        "b": "Albert Einstein",
+        "c": "Isaac Newton",
+        "d": "Kip Thorne",
+        "ans": 3
+      },
+      {
+        "q": "Who discovered the equation E = mc²?",
+        "a": "Carl Sagan",
+        "b": "Albert Einstein",
+        "c": "Isaac Newton",
+        "d": "Kip Thorne",
+        "ans": 2
+      },
+      {
+        "q": "In which galaxy are we located?",
+        "a": "The Solar System",
+        "b": "The Sandy Way",
+        "c": "The Milky Way",
+        "d": "Andromeda",
+        "ans": 3
+      },
+      {
+        "q": "Which planet is located between Mercury and Earth?",
+        "a": "Neptune",
+        "b": "Jupiter",
+        "c": "Mars",
+        "d": "Venus",
+        "ans": 4
       }
     ],
     "l2": [
@@ -360,7 +408,7 @@
         "a": "Leonardo da Vinci",
         "b": "Pablo Picasso",
         "c": "Claude Monet",
-        "d": "Michaelangelo",
+        "d": "Michelangelo",
         "ans": 4
       },
       {
@@ -378,6 +426,14 @@
         "c": "Jupiter",
         "d": "Neptune",
         "ans": 4
+      },
+      {
+        "q": "What is Albert Einstein best known for?",
+        "a": "The Theory of Gravitation",
+        "b": "The Theory of Relativity",
+        "c": "Hawking Radiation",
+        "d": "The Big Bang Theory",
+        "ans": 2
       }
     ],
     "l3": [
