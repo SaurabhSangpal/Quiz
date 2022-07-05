@@ -184,6 +184,70 @@
         "c": "East Bengal",
         "d": "East India",
         "ans": 2
+      },
+      {
+        "q": "What modern-day Indian city was known as Bombay?",
+        "a": "Mumbai",
+        "b": "Pune",
+        "c": "Kolhapur",
+        "d": "Solapur",
+        "ans": 1
+      },
+      {
+        "q": "What is the sun?",
+        "a": "A Planet",
+        "b": "A Star",
+        "c": "A Comet",
+        "d": "An Asteroid",
+        "ans": 2
+      },
+      {
+        "q": "Mark Zuckerberg is the founder of which company?",
+        "a": "Amazon",
+        "b": "Microsoft",
+        "c": "Facebook",
+        "d": "Google",
+        "ans": 3
+      },
+      {
+        "q": "What is the first element in the periodic table?",
+        "a": "Carbon",
+        "b": "Neon",
+        "c": "Argon",
+        "d": "Hydrogen",
+        "ans": 4
+      },
+      {
+        "q": "What is the chemical formula of water?",
+        "a": "H2O",
+        "b": "CO2",
+        "c": "NO2",
+        "d": "H2SO4",
+        "ans": 1
+      },
+      {
+        "q": "Where are polar bears typically found?",
+        "a": "Southeast Asia",
+        "b": "Europe",
+        "c": "The Arctic Circle",
+        "d": "Africa",
+        "ans": 3
+      },
+      {
+        "q": "What type of creature is the squid?",
+        "a": "Flying Creature",
+        "b": "Sea Creature",
+        "c": "Land Creature",
+        "d": "Underground Creature",
+        "ans": 2
+      },
+      {
+        "q": "Which planet is the closest to the sun in our solar system?",
+        "a": "Mercury",
+        "b": "Venus",
+        "c": "Jupiter",
+        "d": "Mars",
+        "ans": 1
       }
     ],
     "l2": [
@@ -297,6 +361,22 @@
         "b": "Pablo Picasso",
         "c": "Claude Monet",
         "d": "Michaelangelo",
+        "ans": 4
+      },
+      {
+        "q": "What group of people discovered Greenland?",
+        "a": "The Vikings",
+        "b": "The British",
+        "c": "The French",
+        "d": "The Spanish",
+        "ans": 1
+      },
+      {
+        "q": "Which planet is the farthest from the sun in our solar system?",
+        "a": "Mercury",
+        "b": "Venus",
+        "c": "Jupiter",
+        "d": "Neptune",
         "ans": 4
       }
     ],
@@ -510,6 +590,22 @@
         "c": "Small Pox",
         "d": "Malaria",
         "ans": 3
+      },
+      {
+        "q": "What scandal forced U.S. President Richard Nixon to resign in 1974?",
+        "a": "The Nixon Scandal",
+        "b": "Waterfall",
+        "c": "Coalgate",
+        "d": "Watergate",
+        "ans": 4
+      },
+      {
+        "q": "Which is the only planet in our solar system that rotates in the opposite direction?",
+        "a": "Saturn",
+        "b": "Venus",
+        "c": "Jupiter",
+        "d": "Neptune",
+        "ans": 2
       }
     ],
     "l5": [
@@ -575,6 +671,22 @@
         "b": "United Kingdom",
         "c": "New Zealand",
         "d": "Germany",
+        "ans": 3
+      },
+      {
+        "q": "The Khmer Rouge was a regime ruling which nation in the 20th century?",
+        "a": "Iraq",
+        "b": "Estonia",
+        "c": "Peru",
+        "d": "Cambodia",
+        "ans": 4
+      },
+      {
+        "q": "Who was the king of France during the French Revolution?",
+        "a": "Louis XIV",
+        "b": "Louis X",
+        "c": "Louis XVI",
+        "d": "Louis XII",
         "ans": 3
       }
     ],
@@ -642,6 +754,14 @@
         "c": "8",
         "d": "4",
         "ans": 4
+      },
+      {
+        "q": "Who was the founder of the Mongol Empire?",
+        "a": "Jal al-Din",
+        "b": "Genghis Khan",
+        "c": "Khabul Khan",
+        "d": "Toghrul Khan",
+        "ans": 2
       }
     ],
     "l7": [
@@ -710,6 +830,14 @@
         "c": "Corinth",
         "d": "Thebes",
         "ans": 2
+      },
+      {
+        "q": "Which empire did Charlemagne rule?",
+        "a": "Holy Roman Empire",
+        "b": "French Empire",
+        "c": "British Empire",
+        "d": "Spanish Empire",
+        "ans": 1
       }
     ],
     "l9": [
@@ -744,6 +872,14 @@
         "c": "1",
         "d": "0",
         "ans": 3
+      },
+      {
+        "q": "Which civilization was centered around the city of Tenochtitlan?",
+        "a": "Persian",
+        "b": "Aztec",
+        "c": "Mayan",
+        "d": "Inca",
+        "ans": 2
       }
     ],
     "l10": [
@@ -812,6 +948,14 @@
         "c": "Harry Houdini",
         "d": "Annie Oakley",
         "ans": 3
+      },
+      {
+        "q": "Who assassinated Abraham Lincoln?",
+        "a": "James Michael Booth",
+        "b": "John Wilkes Booth",
+        "c": "John Michael Booth",
+        "d": "James Wilkes Booth",
+        "ans": 2
       }
     ],
     "l12": [
