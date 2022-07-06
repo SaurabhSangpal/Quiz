@@ -27,9 +27,13 @@ import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import `in`.stellargames.quizly.ui.theme.QuizTheme
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 
 class GameOverActivity : ComponentActivity() {
+    private lateinit var firebase: FirebaseAnalytics
     private var score: Int = 0
     private var timeSaved: Int = 0
     private var level: Int = 0
@@ -43,6 +47,8 @@ class GameOverActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        firebase = Firebase.analytics
 
         score = intent.getIntExtra("score", 0)
         timeSaved = intent.getIntExtra("timeSaved", 0)
@@ -174,6 +180,11 @@ class GameOverActivity : ComponentActivity() {
     }
 
     private fun shareScore() {
+        firebase.logEvent(FirebaseAnalytics.Event.SHARE, Bundle().apply {
+            this.putInt("score", score)
+            this.putInt("timeSaved", timeSaved)
+        })
+
         val intent = Intent().apply {
             action = Intent.ACTION_SEND
             putExtra(

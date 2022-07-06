@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "221923164784",
+    "project_id": "quizly-e7800",
+    "storage_bucket": "quizly-e7800.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221923164784:android:9c1c86009412e93bd0eab5",
+        "android_client_info": {
+          "package_name": "in.stellargames.quizly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221923164784-u59ls2lgsfdp8vl8u3ihbkfrj2crl3qk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvTmXo0k47wQI_lOrC43m2bj1PjpmEim8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221923164784-u59ls2lgsfdp8vl8u3ihbkfrj2crl3qk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

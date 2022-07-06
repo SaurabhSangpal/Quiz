@@ -16,10 +16,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.android.gms.ads.MobileAds
 import `in`.stellargames.quizly.ui.theme.QuizTheme
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : ComponentActivity() {
+    private lateinit var firebase: FirebaseAnalytics
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        firebase = Firebase.analytics
         MobileAds.initialize(this) { }
         val prefs = getSharedPreferences("quizprefs", MODE_PRIVATE)
         setContent {
@@ -54,14 +61,12 @@ class MainActivity : ComponentActivity() {
                             Text("Rules", fontWeight = FontWeight.Bold, fontSize = 30.sp)
                             Spacer(modifier = Modifier.size(15.dp))
                             Text("Answer the questions correctly in the shortest amount of time for high score!")
-                            Text("Please note that pausing the game is not allowed.\nYou are also not allowed to press the back or home button while the game is in progress.\nThe game will reset if it is sent to background.")
+                            Text(
+                                """Please note that pausing the game is not allowed.
+You are also not allowed to press the back or home button while the game is in progress.
+The game will reset if it is sent to background."""
+                            )
                             Spacer(modifier = Modifier.size(5.dp))
-                            Button(
-                                onClick = { displayRules.value = false },
-                                modifier = Modifier.width(80.dp)
-                            ) {
-                                Text("OK")
-                            }
                         }
                         Column(
                             modifier = Modifier.padding(
