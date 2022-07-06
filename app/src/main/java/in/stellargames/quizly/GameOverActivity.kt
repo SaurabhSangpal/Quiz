@@ -51,9 +51,7 @@ class GameOverActivity : ComponentActivity() {
         if (score == AllQuestions.MAX_SCORE)
             canTryAgain = false
 
-        mIsInterstitialLoading = true
         loadInterstitialAd()
-        mIsRewardedLoading = true
         loadRewardedAd()
         setContent {
             QuizTheme {
@@ -82,6 +80,7 @@ class GameOverActivity : ComponentActivity() {
             Text(
                 gameOverText, fontWeight = FontWeight.Bold, fontSize = 30.sp
             )
+            Spacer(modifier = Modifier.size(25.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceEvenly
@@ -103,6 +102,7 @@ class GameOverActivity : ComponentActivity() {
                         coroutineScope.launch { snackState.showSnackbar("Loading... Please retry in a moment.") }
                     } else if (mRewardedAd == null) {
                         coroutineScope.launch { snackState.showSnackbar("Failed to load ad. Please retry after checking your internet connection.") }
+                        loadRewardedAd()
                     } else {
                         retryLevel()
                     }
@@ -188,6 +188,9 @@ class GameOverActivity : ComponentActivity() {
     }
 
     private fun loadInterstitialAd() {
+        if (mIsInterstitialLoading)
+            return
+        mIsInterstitialLoading = true
         var adRequest = AdRequest.Builder().build()
         InterstitialAd.load(
             this,
@@ -236,6 +239,9 @@ class GameOverActivity : ComponentActivity() {
     }
 
     private fun loadRewardedAd() {
+        if (mIsRewardedLoading)
+            return
+        mIsRewardedLoading = true
         var request = AdRequest.Builder().build()
 
         RewardedAd.load(this, REWARDED, request, object : RewardedAdLoadCallback() {
