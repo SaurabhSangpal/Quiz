@@ -1,8 +1,10 @@
 package `in`.stellargames.quizly
 
+import androidx.annotation.Keep
 import kotlinx.serialization.Serializable
 
 // A is 1, B is 2, C is 3, D is 4, ans points to the index of the option.
+@Keep
 @Serializable
 class Question(
     val q: String,
@@ -13,9 +15,11 @@ class Question(
     val ans: Int
 )
 
+@Keep
 @Serializable
 class Root(val allQuestions: AllQuestions)
 
+@Keep
 @Serializable
 class AllQuestions(
     val l1: List<Question>,
