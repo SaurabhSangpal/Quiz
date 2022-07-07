@@ -1,12 +1,17 @@
 package `in`.stellargames.quizly
 
+import `in`.stellargames.quizly.ui.theme.QuizTheme
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
+import androidx.compose.animation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -15,10 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.android.gms.ads.MobileAds
-import `in`.stellargames.quizly.ui.theme.QuizTheme
-import android.content.SharedPreferences
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
@@ -55,129 +56,159 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     })
-                    if (displayRules.value) {
-                        DisplayRules(displayRules)
-                    } else if (showSettings.value) {
-                        DisplaySettings(showSettings, prefs)
-                    } else {
-                        ShowMainContent(showSettings, displayRules)
-                    }
+                    DisplayRules(displayRules, showSettings)
+                    DisplaySettings(showSettings, displayRules, prefs)
+                    ShowMainContent(showSettings, displayRules)
                 }
             }
         }
     }
 
+    @OptIn(ExperimentalAnimationApi::class)
     @Composable
     private fun ShowMainContent(
         showSettings: MutableState<Boolean>,
         displayRules: MutableState<Boolean>
     ) {
-        Column(
-            modifier = Modifier.padding(20.dp),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
+        AnimatedVisibility(
+            visible = !showSettings.value && !displayRules.value,
+            enter = fadeIn(),
+            exit = fadeOut()
         ) {
-            Spacer(modifier = Modifier.size(0.dp, 50.dp))
-            Text(
-                getString(R.string.app_name),
-                fontWeight = FontWeight.Bold,
-                fontSize = 40.sp
-            )
-        }
-        Column(
-            modifier = Modifier.padding(10.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            val btnModifier = Modifier
-                .width(200.dp)
-                .height(40.dp)
-            Button(onClick = { startGame() }, modifier = btnModifier) {
-                Text("Start Game")
-            }
-            Spacer(modifier = Modifier.height(30.dp))
-            Button(
-                onClick = { showSettings.value = true },
-                modifier = btnModifier
+            Column(
+                modifier = Modifier.padding(20.dp),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("Settings")
+                Spacer(modifier = Modifier.size(0.dp, 50.dp))
+                Text(
+                    getString(R.string.app_name),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 40.sp
+                )
             }
-            Spacer(modifier = Modifier.height(30.dp))
-            Button(
-                onClick = { displayRules.value = true },
-                modifier = btnModifier
+            Column(
+                modifier = Modifier
+                    .padding(10.dp)
+                    .animateEnterExit(
+                        enter = expandVertically() + fadeIn(),
+                        exit = fadeOut()
+                    ),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("Rules")
+                val btnModifier = Modifier
+                    .width(200.dp)
+                    .height(40.dp)
+                Button(onClick = { startGame() }, modifier = btnModifier) {
+                    Text("Start Game")
+                }
+                Spacer(modifier = Modifier.height(30.dp))
+                Button(
+                    onClick = { showSettings.value = true },
+                    modifier = btnModifier
+                ) {
+                    Text("Settings")
+                }
+                Spacer(modifier = Modifier.height(30.dp))
+                Button(
+                    onClick = { displayRules.value = true },
+                    modifier = btnModifier
+                ) {
+                    Text("Rules")
+                }
             }
         }
     }
 
+    @OptIn(ExperimentalAnimationApi::class)
     @Composable
     private fun DisplaySettings(
         showSettings: MutableState<Boolean>,
+        displayRules: MutableState<Boolean>,
         prefs: SharedPreferences
     ) {
-        Column(
-            modifier = Modifier.padding(20.dp),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
+        AnimatedVisibility(
+            visible = showSettings.value && !displayRules.value,
+            enter = fadeIn(),
+            exit = fadeOut()
         ) {
-            Spacer(modifier = Modifier.size(0.dp, 50.dp))
-            Text(
-                text = "Settings",
-                fontWeight = FontWeight.Bold,
-                fontSize = 40.sp
-            )
-        }
-        Column(
-            modifier = Modifier.padding(10.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceEvenly
+            Column(
+                modifier = Modifier.padding(20.dp),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                val audioEnabled =
-                    remember { mutableStateOf(prefs.getBoolean("audio", true)) }
-                Text("Play Audio")
-                Checkbox(
-                    checked = audioEnabled.value,
-                    onCheckedChange = {
-                        val state = prefs.getBoolean("audio", true)
-                        prefs.edit().putBoolean("audio", !state).apply()
-                        audioEnabled.value = !state
-                    })
+                Spacer(modifier = Modifier.size(0.dp, 50.dp))
+                Text(
+                    text = "Settings",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 40.sp
+                )
+            }
+            Column(
+                modifier = Modifier
+                    .padding(10.dp)
+                    .animateEnterExit(enter = expandVertically() + fadeIn(), exit = fadeOut()),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    val audioEnabled =
+                        remember { mutableStateOf(prefs.getBoolean("audio", true)) }
+                    Text("Play Audio")
+                    Checkbox(
+                        checked = audioEnabled.value,
+                        onCheckedChange = {
+                            val state = prefs.getBoolean("audio", true)
+                            prefs.edit().putBoolean("audio", !state).apply()
+                            audioEnabled.value = !state
+                        })
+                }
             }
         }
     }
 
+    @OptIn(ExperimentalAnimationApi::class)
     @Composable
-    private fun DisplayRules(displayRules: MutableState<Boolean>) {
-        Column(
-            modifier = Modifier.padding(20.dp),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
+    private fun DisplayRules(
+        displayRules: MutableState<Boolean>,
+        showSettings: MutableState<Boolean>
+    ) {
+        AnimatedVisibility(
+            visible = displayRules.value && !showSettings.value,
+            enter = fadeIn(),
+            exit = fadeOut()
         ) {
-            Spacer(modifier = Modifier.size(0.dp, 50.dp))
-            Text(
-                text = "Rules",
-                fontWeight = FontWeight.Bold,
-                fontSize = 40.sp
-            )
-        }
-        Column(
-            modifier = Modifier.padding(10.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.Start,
-        ) {
-            Text("Answer the questions correctly in the shortest amount of time for high score!")
-            Text(
-                """Please note that pausing the game is not allowed.
+            Column(
+                modifier = Modifier.padding(20.dp),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Spacer(modifier = Modifier.size(0.dp, 50.dp))
+                Text(
+                    text = "Rules",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 40.sp
+                )
+            }
+            Column(
+                modifier = Modifier
+                    .padding(10.dp)
+                    .animateEnterExit(enter = expandVertically() + fadeIn(), exit = fadeOut()),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.Start,
+            ) {
+                Text("Answer the questions correctly in the shortest amount of time for high score!")
+                Text(
+                    """Please note that pausing the game is not allowed.
 You are also not allowed to press the back or home button while the game is in progress.
 The game will reset if it is sent to background."""
-            )
-            Spacer(modifier = Modifier.size(5.dp))
+                )
+                Spacer(modifier = Modifier.size(5.dp))
+            }
         }
     }
 
