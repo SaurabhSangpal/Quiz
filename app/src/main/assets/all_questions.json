@@ -296,6 +296,30 @@
         "c": "Mars",
         "d": "Venus",
         "ans": 4
+      },
+      {
+        "q": "What is the largest planet in the solar system?",
+        "a": "Jupiter",
+        "b": "Neptune",
+        "c": "Saturn",
+        "d": "Mercury",
+        "ans": 1
+      },
+      {
+        "q": "Who plays the role of Iron Man in the Marvel cinematic universe?",
+        "a": "Chris Hemsworth",
+        "b": "Robert Downey Jr",
+        "c": "Chris Evans",
+        "d": "Chris Pratt",
+        "ans": 2
+      },
+      {
+        "q": "Who is the current Prime Minister of India?",
+        "a": "Jawaharlal Nehru",
+        "b": "Manmohan Singh",
+        "c": "Yogi Adityanath",
+        "d": "Narendra Modi",
+        "ans": 4
       }
     ],
     "l2": [
@@ -433,6 +457,30 @@
         "b": "The Theory of Relativity",
         "c": "Hawking Radiation",
         "d": "The Big Bang Theory",
+        "ans": 2
+      },
+      {
+        "q": "Who was the first Prime Minister of India?",
+        "a": "Jawaharlal Nehru",
+        "b": "Manmohan Singh",
+        "c": "Indira Gandhi",
+        "d": "Lal Bahadur Shastri",
+        "ans": 1
+      },
+      {
+        "q": "Who was the first President of USA?",
+        "a": "Abraham Lincoln",
+        "b": "Andrew Jackson",
+        "c": "George Washingon",
+        "d": "Thomas Jefferson",
+        "ans": 3
+      },
+      {
+        "q": "Who was the first President of India?",
+        "a": "APJ Abdul Kalam",
+        "b": "Rajendra Prasad",
+        "c": "Pratibha Patil",
+        "d": "Pranab Mukherjee",
         "ans": 2
       }
     ],
