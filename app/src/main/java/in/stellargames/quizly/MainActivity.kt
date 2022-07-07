@@ -16,6 +16,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.android.gms.ads.MobileAds
 import `in`.stellargames.quizly.ui.theme.QuizTheme
+import android.content.SharedPreferences
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
@@ -53,111 +56,128 @@ class MainActivity : ComponentActivity() {
                         }
                     })
                     if (displayRules.value) {
-                        Column(
-                            modifier = Modifier.padding(10.dp),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                        ) {
-                            Text("Rules", fontWeight = FontWeight.Bold, fontSize = 30.sp)
-                            Spacer(modifier = Modifier.size(15.dp))
-                            Text("Answer the questions correctly in the shortest amount of time for high score!")
-                            Text(
-                                """Please note that pausing the game is not allowed.
-You are also not allowed to press the back or home button while the game is in progress.
-The game will reset if it is sent to background."""
-                            )
-                            Spacer(modifier = Modifier.size(5.dp))
-                        }
-                        Column(
-                            modifier = Modifier.padding(
-                                10.dp
-                            ), verticalArrangement = Arrangement.Bottom,
-                            horizontalAlignment = Alignment.Start
-                        ) {
-                            Button(
-                                onClick = { displayRules.value = false },
-                                modifier = Modifier.width(100.dp)
-                            ) {
-                                Text("Back")
-                            }
-                        }
-                    } else if (!showSettings.value) {
-                        Column(
-                            modifier = Modifier.padding(10.dp),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                        ) {
-                            Text(
-                                getString(R.string.app_name),
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 40.sp
-                            )
-                            Spacer(modifier = Modifier.size(300.dp))
-                        }
-                        Column(
-                            modifier = Modifier.padding(10.dp),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            val btnModifier = Modifier
-                                .width(200.dp)
-                                .height(40.dp)
-                            Button(onClick = { startGame() }, modifier = btnModifier) {
-                                Text("Start Game")
-                            }
-                            Spacer(modifier = Modifier.height(30.dp))
-                            Button(
-                                onClick = { showSettings.value = true },
-                                modifier = btnModifier
-                            ) {
-                                Text("Settings")
-                            }
-                            Spacer(modifier = Modifier.height(30.dp))
-                            Button(
-                                onClick = { displayRules.value = true },
-                                modifier = btnModifier
-                            ) {
-                                Text("Rules")
-                            }
-                        }
+                        DisplayRules(displayRules)
+                    } else if (showSettings.value) {
+                        DisplaySettings(showSettings, prefs)
                     } else {
-                        Column(
-                            modifier = Modifier.padding(
-                                10.dp
-                            ), verticalArrangement = Arrangement.Bottom,
-                            horizontalAlignment = Alignment.Start
-                        ) {
-                            Button(
-                                onClick = { showSettings.value = false },
-                                modifier = Modifier.width(100.dp)
-                            ) {
-                                Text("Back")
-                            }
-                        }
-                        Column(
-                            modifier = Modifier.padding(10.dp),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.SpaceEvenly
-                            ) {
-                                val audioEnabled =
-                                    remember { mutableStateOf(prefs.getBoolean("audio", true)) }
-                                Text("Play Audio")
-                                Checkbox(
-                                    checked = audioEnabled.value,
-                                    onCheckedChange = {
-                                        val state = prefs.getBoolean("audio", true)
-                                        prefs.edit().putBoolean("audio", !state).apply()
-                                        audioEnabled.value = !state
-                                    })
-                            }
-                        }
+                        ShowMainContent(showSettings, displayRules)
                     }
                 }
             }
+        }
+    }
+
+    @Composable
+    private fun ShowMainContent(
+        showSettings: MutableState<Boolean>,
+        displayRules: MutableState<Boolean>
+    ) {
+        Column(
+            modifier = Modifier.padding(20.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(modifier = Modifier.size(0.dp, 50.dp))
+            Text(
+                getString(R.string.app_name),
+                fontWeight = FontWeight.Bold,
+                fontSize = 40.sp
+            )
+        }
+        Column(
+            modifier = Modifier.padding(10.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            val btnModifier = Modifier
+                .width(200.dp)
+                .height(40.dp)
+            Button(onClick = { startGame() }, modifier = btnModifier) {
+                Text("Start Game")
+            }
+            Spacer(modifier = Modifier.height(30.dp))
+            Button(
+                onClick = { showSettings.value = true },
+                modifier = btnModifier
+            ) {
+                Text("Settings")
+            }
+            Spacer(modifier = Modifier.height(30.dp))
+            Button(
+                onClick = { displayRules.value = true },
+                modifier = btnModifier
+            ) {
+                Text("Rules")
+            }
+        }
+    }
+
+    @Composable
+    private fun DisplaySettings(
+        showSettings: MutableState<Boolean>,
+        prefs: SharedPreferences
+    ) {
+        Column(
+            modifier = Modifier.padding(20.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(modifier = Modifier.size(0.dp, 50.dp))
+            Text(
+                text = "Settings",
+                fontWeight = FontWeight.Bold,
+                fontSize = 40.sp
+            )
+        }
+        Column(
+            modifier = Modifier.padding(10.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                val audioEnabled =
+                    remember { mutableStateOf(prefs.getBoolean("audio", true)) }
+                Text("Play Audio")
+                Checkbox(
+                    checked = audioEnabled.value,
+                    onCheckedChange = {
+                        val state = prefs.getBoolean("audio", true)
+                        prefs.edit().putBoolean("audio", !state).apply()
+                        audioEnabled.value = !state
+                    })
+            }
+        }
+    }
+
+    @Composable
+    private fun DisplayRules(displayRules: MutableState<Boolean>) {
+        Column(
+            modifier = Modifier.padding(20.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(modifier = Modifier.size(0.dp, 50.dp))
+            Text(
+                text = "Rules",
+                fontWeight = FontWeight.Bold,
+                fontSize = 40.sp
+            )
+        }
+        Column(
+            modifier = Modifier.padding(10.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.Start,
+        ) {
+            Text("Answer the questions correctly in the shortest amount of time for high score!")
+            Text(
+                """Please note that pausing the game is not allowed.
+You are also not allowed to press the back or home button while the game is in progress.
+The game will reset if it is sent to background."""
+            )
+            Spacer(modifier = Modifier.size(5.dp))
         }
     }
 
