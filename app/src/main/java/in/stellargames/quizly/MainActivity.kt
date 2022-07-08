@@ -215,5 +215,6 @@ The game will reset if it is sent to background."""
     private fun startGame() {
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
+        finish()
     }
 }
