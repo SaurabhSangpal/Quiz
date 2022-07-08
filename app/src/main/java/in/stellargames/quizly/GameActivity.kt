@@ -106,6 +106,7 @@ class GameActivity : ComponentActivity() {
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("displayRules", true)
         startActivity(intent)
+        finish()
     }
 
     @Composable
@@ -294,6 +295,7 @@ class GameActivity : ComponentActivity() {
         intent.putExtra("timeSaved", timeSaved)
         intent.putExtra("canTryAgain", canTryAgain)
         startActivity(intent)
+        finish()
     }
 
     @Composable
