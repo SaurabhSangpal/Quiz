@@ -1518,6 +1518,22 @@
         "c": "Germany",
         "d": "Soviet Union",
         "ans": 4
+      },
+      {
+        "q": "Which is the fastest dog breed?",
+        "a": "German Shepherd",
+        "b": "Greyhound",
+        "c": "Irish Wolfhound",
+        "d": "Great Dane",
+        "ans": 2
+      },
+      {
+        "q": "The tracking power of which dog breed is admissible evidence in a US courtroom?",
+        "a": "Bloodhound",
+        "b": "Labrador Retriever",
+        "c": "German Shepherd",
+        "d": "Pit Bull",
+        "ans": 1
       }
     ],
     "l9": [
@@ -1632,6 +1648,54 @@
         "c": "Bombed It",
         "d": "Spread Propaganda",
         "ans": 1
+      },
+      {
+        "q": "Which dog breed is native to Tibet?",
+        "a": "Bichon Frise",
+        "b": "Borzoi",
+        "c": "Klee Kai",
+        "d": "Lhasa Apso",
+        "ans": 4
+      },
+      {
+        "q": "According to legend, the Buddha shrunk down a lion to create which dog breed?",
+        "a": "Afghan Hound",
+        "b": "Tibetan Mastiff",
+        "c": "Pekingese",
+        "d": "Lhasa Apso",
+        "ans": 3
+      },
+      {
+        "q": "Mill Ends Park in Portland, Oregon holds the Guinness World Record for what?",
+        "a": "Tallest Set of Stairs",
+        "b": "World's Smallest Park",
+        "c": "Largest Parking Lot",
+        "d": "Tallest Tree",
+        "ans": 2
+      },
+      {
+        "q": "With an average altitude of 1.56 miles, what is the highest continent?",
+        "a": "Antarctica",
+        "b": "Asia",
+        "c": "Europe",
+        "d": "North America",
+        "ans": 1
+      },
+      {
+        "q": "What is the world's smallest island nation?",
+        "a": "Malta",
+        "b": "Maldives",
+        "c": "Barbados",
+        "d": "Nauru",
+        "ans": 4
+      },
+      {
+        "q": "Measured from its base on the ocean floor, what is the world’s tallest mountain?",
+        "a": "Kangchenjunga",
+        "b": "K2",
+        "c": "Mauna Kea",
+        "d": "Mount Everest",
+        "ans": 3
       }
     ],
     "l10": [
@@ -1722,6 +1786,78 @@
         "c": "Berlin",
         "d": "Leningrad",
         "ans": 1
+      },
+      {
+        "q": "Where are most of the world’s cocoa beans grown?",
+        "a": "Mexico",
+        "b": "Brazil",
+        "c": "Argentina",
+        "d": "Cote d'Ivore",
+        "ans": 4
+      },
+      {
+        "q": "In what form was chocolate first consumed?",
+        "a": "Powder",
+        "b": "Solid",
+        "c": "Liquid",
+        "d": "Paste",
+        "ans": 3
+      },
+      {
+        "q": "The Swiss chocolate bar Toblerone has which mountain on its package?",
+        "a": "Mount Everest",
+        "b": "The Matterhorn",
+        "c": "Mount Fuji",
+        "d": "K2",
+        "ans": 2
+      },
+      {
+        "q": "Serengeti National Park is in which country?",
+        "a": "Tanzania",
+        "b": "Mali",
+        "c": "Kenya",
+        "d": "Niger",
+        "ans": 1
+      },
+      {
+        "q": "Which of the following is not a border of the Sahara Desert?",
+        "a": "Black Sea",
+        "b": "Bering Sea",
+        "c": "Atlantic Ocean",
+        "d": "Pacific Ocean",
+        "ans": 4
+      },
+      {
+        "q": "Which lake is the largest lake in Africa and the main reservoir of the Nile?",
+        "a": "Lake Edward",
+        "b": "Lake Malawi",
+        "c": "Lake Victoria",
+        "d": "Lake Tanganyika",
+        "ans": 3
+      },
+      {
+        "q": "Which is the highest peak in Africa?",
+        "a": "Mount Elgon",
+        "b": "Kilimanjaro",
+        "c": "K2",
+        "d": "Mount Batian",
+        "ans": 2
+      },
+      {
+        "q": "Which is the smallest non-island country in Africa?",
+        "a": "The Gambia",
+        "b": "Cote d'Ivore",
+        "c": "Mozambique",
+        "d": "Tanzania",
+        "ans": 1
+      },
+      {
+        "q": "What is India’s smallest state by area?",
+        "a": "Kerala",
+        "b": "Delhi",
+        "c": "Puducherry",
+        "d": "Goa",
+        "ans": 4
       }
     ],
     "l11": [
@@ -1820,6 +1956,70 @@
         "c": "Elisha Otis",
         "d": "Hal Anger",
         "ans": 3
+      },
+      {
+        "q": "Which country was formerly called Rhodesia?",
+        "a": "Ethiopia",
+        "b": "Zimbabwe",
+        "c": "Nigeria",
+        "d": "Kenya",
+        "ans": 2
+      },
+      {
+        "q": "In which country would you find the city of Timbuktu?",
+        "a": "Nigeria",
+        "b": "Morocco",
+        "c": "Chad",
+        "d": "Mali",
+        "ans": 4
+      },
+      {
+        "q": "Which country is completely surrounded by South Africa?",
+        "a": "Lesotho",
+        "b": "Madagascar",
+        "c": "Cape Verde",
+        "d": "Liberia",
+        "ans": 1
+      },
+      {
+        "q": "Which language is spoken on the east coast of Africa?",
+        "a": "Cushitic",
+        "b": "Songhay",
+        "c": "Swahili",
+        "d": "Malagasy",
+        "ans": 3
+      },
+      {
+        "q": "How many countries border India?",
+        "a": "9",
+        "b": "6",
+        "c": "4",
+        "d": "5",
+        "ans": 2
+      },
+      {
+        "q": "Where did chess first originate?",
+        "a": "Spain",
+        "b": "Iran",
+        "c": "China",
+        "d": "India",
+        "ans": 4
+      },
+      {
+        "q": "Which Indian president received the Bharat Ratna, India's highest civilian award in 2019?",
+        "a": "Pranab Mukherjee",
+        "b": "Pratibha Patil",
+        "c": "APJ Abdul Kalam",
+        "d": "Rajendra Prasad",
+        "ans": 1
+      },
+      {
+        "q": "Who was the first non-European to receive the Nobel Prize for Literature?",
+        "a": "Eugene O'Neill",
+        "b": "William Faulkner",
+        "c": "Rabindranath Tagore",
+        "d": "Ivan Bunin",
+        "ans": 3
       }
     ],
     "l12": [
@@ -1902,6 +2102,86 @@
         "c": "Navajo",
         "d": "Yaru Quechua",
         "ans": 3
+      },
+      {
+        "q": "Which country is the chief home of the Shona people?",
+        "a": "Zimbabwe",
+        "b": "Tanzania",
+        "c": "Kenya",
+        "d": "Namibia",
+        "ans": 1
+      },
+      {
+        "q": "Which is the highest mountain peak of the Sahara?",
+        "a": "Mount Karasimbi",
+        "b": "Mount Elgon",
+        "c": "Mount Virunga",
+        "d": "Mount Koussi",
+        "ans": 4
+      },
+      {
+        "q": "What Indian city is the capital of two states?",
+        "a": "Chennai",
+        "b": "Chandigarh",
+        "c": "Delhi",
+        "d": "Mumbai",
+        "ans": 2
+      },
+      {
+        "q": "Which town in Nagaland was World War II fought?",
+        "a": "Wokha",
+        "b": "Dimapur",
+        "c": "Kohima",
+        "d": "Phek",
+        "ans": 3
+      },
+      {
+        "q": "Who was the last Mughal emperor of India?",
+        "a": "Bahadur Shah II",
+        "b": "Muhammad Shah",
+        "c": "Jahangir",
+        "d": "Nadir Shah",
+        "ans": 1
+      },
+      {
+        "q": "What city is known as the Venice of the North?",
+        "a": "Oslo",
+        "b": "Helsinki",
+        "c": "London",
+        "d": "Stolkholm",
+        "ans": 4
+      },
+      {
+        "q": "Where is the capital of the European Union located?",
+        "a": "Austria",
+        "b": "Belgium",
+        "c": "Germany",
+        "d": "The Netherlands",
+        "ans": 2
+      },
+      {
+        "q": "Which is the highest mountain on any island on Earth?",
+        "a": "Mount Etna",
+        "b": "Mount Everest",
+        "c": "Jaya Peak",
+        "d": "Krakatoa",
+        "ans": 3
+      },
+      {
+        "q": "What country is known as the Isle of Spice?",
+        "a": "Grenada",
+        "b": "Jamaica",
+        "c": "India",
+        "d": "Myanmar",
+        "ans": 1
+      },
+      {
+        "q": "Which of these was the first programmable general-purpose electronic digital computer?",
+        "a": "EDVAC",
+        "b": "BINAC",
+        "c": "Turing Machine",
+        "d": "ENIAC",
+        "ans": 4
       }
     ]
   }
