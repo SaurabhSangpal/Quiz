@@ -1,5 +1,8 @@
 package `in`.stellargames.quizly
 
+import `in`.stellargames.quizly.ui.theme.Green
+import `in`.stellargames.quizly.ui.theme.QuizTheme
+import `in`.stellargames.quizly.ui.theme.Red
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -10,11 +13,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.RadioButton
-import androidx.compose.material.Text
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -27,9 +26,6 @@ import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import `in`.stellargames.quizly.ui.theme.Green
-import `in`.stellargames.quizly.ui.theme.QuizTheme
-import `in`.stellargames.quizly.ui.theme.Red
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
@@ -112,7 +108,7 @@ class GameActivity : ComponentActivity() {
     @Composable
     private fun DisplayQuestion(allQuestions: AllQuestions) {
         val (selectedOption, onOptionSelected) = remember { mutableStateOf(-1) }
-        val (submitText, onSubmitTextChange) = remember { mutableStateOf("Submit") }
+        val submitText = remember { mutableStateOf("Submit") }
         val (question, onQuestionChange) = remember {
             mutableStateOf(
                 allQuestions.getQuestionByLvl(
@@ -144,7 +140,7 @@ class GameActivity : ComponentActivity() {
                 }
             }
         }
-        if (!timerStarted && submitText == "Submit") {
+        if (!timerStarted && submitText.value == "Submit") {
             timer?.start()
             onTimerStarted(true)
         }
@@ -173,7 +169,7 @@ class GameActivity : ComponentActivity() {
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = buildOptionModifier(
                             index = 1,
-                            submitText = submitText,
+                            submitText = submitText.value,
                             selectedOption = selectedOption,
                             answer = question.ans,
                             onOptionSelected = onOptionSelected
@@ -181,7 +177,7 @@ class GameActivity : ComponentActivity() {
                     ) {
                         RadioButton(
                             selected = (selectedOption == 1),
-                            onClick = { if (submitText == "Submit") onOptionSelected(1) })
+                            onClick = { if (submitText.value == "Submit") onOptionSelected(1) })
                         Text(question.a)
                     }
                 }
@@ -190,7 +186,7 @@ class GameActivity : ComponentActivity() {
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = buildOptionModifier(
                             index = 2,
-                            submitText = submitText,
+                            submitText = submitText.value,
                             selectedOption = selectedOption,
                             answer = question.ans,
                             onOptionSelected = onOptionSelected
@@ -198,7 +194,7 @@ class GameActivity : ComponentActivity() {
                     ) {
                         RadioButton(
                             selected = (selectedOption == 2),
-                            onClick = { if (submitText == "Submit") onOptionSelected(2) })
+                            onClick = { if (submitText.value == "Submit") onOptionSelected(2) })
                         Text(question.b)
                     }
                 }
@@ -212,7 +208,7 @@ class GameActivity : ComponentActivity() {
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = buildOptionModifier(
                             index = 3,
-                            submitText = submitText,
+                            submitText = submitText.value,
                             selectedOption = selectedOption,
                             answer = question.ans,
                             onOptionSelected = onOptionSelected
@@ -220,7 +216,7 @@ class GameActivity : ComponentActivity() {
                     ) {
                         RadioButton(
                             selected = (selectedOption == 3),
-                            onClick = { if (submitText == "Submit") onOptionSelected(3) })
+                            onClick = { if (submitText.value == "Submit") onOptionSelected(3) })
                         Text(question.c)
                     }
                 }
@@ -229,7 +225,7 @@ class GameActivity : ComponentActivity() {
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = buildOptionModifier(
                             index = 4,
-                            submitText = submitText,
+                            submitText = submitText.value,
                             selectedOption = selectedOption,
                             answer = question.ans,
                             onOptionSelected = onOptionSelected
@@ -237,7 +233,7 @@ class GameActivity : ComponentActivity() {
                     ) {
                         RadioButton(
                             selected = (selectedOption == 4),
-                            onClick = { if (submitText == "Submit") onOptionSelected(4) })
+                            onClick = { if (submitText.value == "Submit") onOptionSelected(4) })
                         Text(question.d)
                     }
                 }
@@ -248,17 +244,17 @@ class GameActivity : ComponentActivity() {
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 Button(onClick = {
-                    if (submitText == "Next") {
+                    if (submitText.value == "Next") {
                         currentLevel++
                         if (currentLevel > AllQuestions.TOTAL_LEVELS) {
                             loadGameOverActivity(score)
                             return@Button
                         }
                         onOptionSelected(-1)
-                        onSubmitTextChange("Submit")
+                        submitText.value = "Submit"
                         onQuestionChange(allQuestions.getQuestionByLvl(currentLevel))
                         return@Button
-                    } else if (submitText == "Back") {
+                    } else if (submitText.value == "Back") {
                         loadGameOverActivity(score)
                         return@Button
                     }
@@ -270,19 +266,19 @@ class GameActivity : ComponentActivity() {
                         }
                         onScoreChange(allQuestions.getScoreByLvl(currentLevel))
                         timeSaved += remainingTime
-                        onSubmitTextChange("Next")
+                        submitText.value = "Next"
                     } else {
                         if (canPlayAudio) {
                             val chime = MediaPlayer.create(baseContext, R.raw.incorrect)
                             chime.start()
                             chime.setOnCompletionListener { chime.release() }
                         }
-                        onSubmitTextChange("Back")
+                        submitText.value = "Back"
                     }
                     timer?.cancel()
                     onTimerStarted(false)
                 }, enabled = selectedOption != -1, modifier = Modifier.width(130.dp)) {
-                    Text(submitText)
+                    Text(submitText.value)
                 }
             }
         }
@@ -342,31 +338,4 @@ class GameActivity : ComponentActivity() {
                 else MaterialTheme.colors.background
             )
     }
-
-    /*
-    @Preview(
-        showBackground = true,
-        name = "Light Mode"
-    )
-    @Preview(
-        uiMode = Configuration.UI_MODE_NIGHT_YES,
-        showBackground = true,
-        name = "Dark Mode"
-    )
-    @Composable
-    fun PreviewQuestion() {
-        QuizTheme {
-            DisplayQuestion(
-                question = Question(
-                    "What is the capital of India?",
-                    "Mumbai",
-                    "Delhi",
-                    "Pune",
-                    "Kolkata",
-                    2
-                ),
-            )
-        }
-    }
-     */
 }
