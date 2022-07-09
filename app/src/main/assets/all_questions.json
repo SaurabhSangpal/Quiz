@@ -482,6 +482,86 @@
         "c": "Pratibha Patil",
         "d": "Pranab Mukherjee",
         "ans": 2
+      },
+      {
+        "q": "Where does the US president live?",
+        "a": "White Mansion",
+        "b": "The Residency",
+        "c": "White House",
+        "d": "Black House",
+        "ans": 3
+      },
+      {
+        "q": "Where does the US president formally work?",
+        "a": "The Parliament",
+        "b": "The Pentagon",
+        "c": "The Capitol",
+        "d": "Oval Office",
+        "ans": 4
+      },
+      {
+        "q": "Which country is a part of Oceania?",
+        "a": "Australia",
+        "b": "Russia",
+        "c": "USA",
+        "d": "Sweden",
+        "ans": 1
+      },
+      {
+        "q": "Who is a co-founder of Microsoft?",
+        "a": "Satya Nadella",
+        "b": "Bill Gates",
+        "c": "Melinda Gates",
+        "d": "Mike Gates",
+        "ans": 2
+      },
+      {
+        "q": "What is the name of the AI powered personal assistant developed by Amazon?",
+        "a": "Ivona",
+        "b": "Alexis",
+        "c": "Siri",
+        "d": "Alexa",
+        "ans": 4
+      },
+      {
+        "q": "What was Google's first product?",
+        "a": "Search Engine",
+        "b": "Encyclopedia",
+        "c": "Online Marketplace",
+        "d": "Book Store",
+        "ans": 1
+      },
+      {
+        "q": "Sweden is a part of which continent?",
+        "a": "Asia",
+        "b": "Africa",
+        "c": "Europe",
+        "d": "South America",
+        "ans": 3
+      },
+      {
+        "q": "Who is known for painting the Mona Lisa?",
+        "a": "Leonardo da Vinci",
+        "b": "Pablo Picasso",
+        "c": "Claude Monet",
+        "d": "Michelangelo",
+        "ans": 1
+      },
+      {
+        "q": "Where did modern pizza originate from?",
+        "a": "Germany",
+        "b": "Italy",
+        "c": "Mexico",
+        "d": "France",
+        "ans": 2
+      },
+      {
+        "q": "Between which planets is the asteroid belt located?",
+        "a": "Venus & Earth",
+        "b": "Earth & Mars",
+        "c": "Mars & Jupiter",
+        "d": "Jupiter & Uranus",
+        "ans": 3
       }
     ],
     "l3": [
@@ -580,6 +660,70 @@
         "c": "Serbia",
         "d": "Hungary",
         "ans": 1
+      },
+      {
+        "q": "What is the term Hubble most commonly associated with?",
+        "a": "Hubble Satellite Launchpad",
+        "b": "Hubble Space Telescope",
+        "c": "Hubble Research Laboratory",
+        "d": "Hubble Space Station",
+        "ans": 2
+      },
+      {
+        "q": "What is the highest civilian award of the Republic of India?",
+        "a": "Bharat Vibhushan",
+        "b": "Padma Vibhushan",
+        "c": "Padma Bhushan",
+        "d": "Bharat Ratna",
+        "ans": 4
+      },
+      {
+        "q": "What is the largest religion by the number of followers?",
+        "a": "Hindu",
+        "b": "Islam",
+        "c": "Christianity",
+        "d": "Buddhism",
+        "ans": 3
+      },
+      {
+        "q": "What is another name for Burma?",
+        "a": "Malaysia",
+        "b": "Myanmar",
+        "c": "Mandalay",
+        "d": "Mongolia",
+        "ans": 2
+      },
+      {
+        "q": "Which city was once called Madras?",
+        "a": "Chennai",
+        "b": "Mumbai",
+        "c": "Goa",
+        "d": "Delhi",
+        "ans": 1
+      },
+      {
+        "q": "Which Greek god is considered the chief deity of the pantheon?",
+        "a": "Ares",
+        "b": "Hades",
+        "c": "Poseidon",
+        "d": "Zeus",
+        "ans": 4
+      },
+      {
+        "q": "Which legendary creature is part horse and part man?",
+        "a": "Harpy",
+        "b": "Minotaur",
+        "c": "Centaur",
+        "d": "Hippogriff",
+        "ans": 3
+      },
+      {
+        "q": "The Roman festival Saturnalia is dedicated to which Roman god?",
+        "a": "Fauna",
+        "b": "Saturn",
+        "c": "Jupiter",
+        "d": "Janus",
+        "ans": 2
       }
     ],
     "l4": [
@@ -710,6 +854,38 @@
         "c": "Jupiter",
         "d": "Neptune",
         "ans": 2
+      },
+      {
+        "q": "The Go programming language was designed at which company?",
+        "a": "Facebook",
+        "b": "Microsoft",
+        "c": "Google",
+        "d": "Apple",
+        "ans": 3
+      },
+      {
+        "q": "Apart from Bill Gates, who was a co-founder of Microsoft?",
+        "a": "Paul Allen",
+        "b": "Brad Smith",
+        "c": "Gabe Newell",
+        "d": "Steve Ballmer",
+        "ans": 1
+      },
+      {
+        "q": "In what year was YouTube launched?",
+        "a": "2010",
+        "b": "2005",
+        "c": "2009",
+        "d": "1994",
+        "ans": 2
+      },
+      {
+        "q": "What is the parent company of Google LLC?",
+        "a": "Google Inc",
+        "b": "Google Holdings Company",
+        "c": "Microsoft Corporation",
+        "d": "Alphabet Inc",
+        "ans": 4
       }
     ],
     "l5": [
@@ -792,6 +968,86 @@
         "c": "Louis XVI",
         "d": "Louis XII",
         "ans": 3
+      },
+      {
+        "q": "What is the highest honour in mathematics?",
+        "a": "Pulitzer Prize",
+        "b": "Fields Medal",
+        "c": "Turing Award",
+        "d": "Grants Medal",
+        "ans": 2
+      },
+      {
+        "q": "What is the highest honour in computer science?",
+        "a": "Pulitzer Prize",
+        "b": "Fields Medal",
+        "c": "Turing Award",
+        "d": "Grants Medal",
+        "ans": 3
+      },
+      {
+        "q": "Who established the Nobel Prize?",
+        "a": "Alfred Nobel",
+        "b": "Edward Nobel",
+        "c": "Michael Nobel",
+        "d": "Albert Nobel",
+        "ans": 1
+      },
+      {
+        "q": "What Indonesian city was originally called Batavia?",
+        "a": "Surabaya",
+        "b": "Jakarta",
+        "c": "Ambon",
+        "d": "Medan",
+        "ans": 2
+      },
+      {
+        "q": "What was another name for Sri Lanka?",
+        "a": "Cambodia",
+        "b": "Celebes",
+        "c": "Mongol",
+        "d": "Ceylon",
+        "ans": 4
+      },
+      {
+        "q": "What is another name for Mount Everest?",
+        "a": "Chomolungma",
+        "b": "Cholunga",
+        "c": "K2",
+        "d": "Cholani",
+        "ans": 1
+      },
+      {
+        "q": "What does the word caliph mean?",
+        "a": "Leader",
+        "b": "Priest",
+        "c": "Successor",
+        "d": "Poet",
+        "ans": 3
+      },
+      {
+        "q": "What is the name fo the hero of Homer's epic poem - the Odyssey?",
+        "a": "Achilles",
+        "b": "Odysseus",
+        "c": "Odypius",
+        "d": "Zagreus",
+        "ans": 2
+      },
+      {
+        "q": "What mythical personality has the power to transform all that he touches into gold?",
+        "a": "Creon",
+        "b": "Theseus",
+        "c": "Alchemius",
+        "d": "Midas",
+        "ans": 4
+      },
+      {
+        "q": "Which mountain is considered as the abode of the gods in Greek mythology?",
+        "a": "Mount Olympia",
+        "b": "Mont Blanc",
+        "c": "Mount Etna",
+        "d": "Mount Olympus",
+        "ans": 4
       }
     ],
     "l6": [
@@ -866,6 +1122,94 @@
         "c": "Khabul Khan",
         "d": "Toghrul Khan",
         "ans": 2
+      },
+      {
+        "q": "Under what name is Microsoft listed under the NASDAQ stock exchange?",
+        "a": "MICROSOFT",
+        "b": "MICRO",
+        "c": "MSFT",
+        "d": "MS",
+        "ans": 3
+      },
+      {
+        "q": "Under what name is Alphabet Inc listed under the NASDAQ stock exchange?",
+        "a": "GOOG",
+        "b": "G",
+        "c": "ALPHA",
+        "d": "ABC",
+        "ans": 1
+      },
+      {
+        "q": "In Greek mythology, who traveled to the land of the dead to find his wife?",
+        "a": "Kratos",
+        "b": "Hades",
+        "c": "Demosthenes",
+        "d": "Orpheus",
+        "ans": 4
+      },
+      {
+        "q": "Which Greek god has winged sandals?",
+        "a": "Hades",
+        "b": "Hermes",
+        "c": "Zeus",
+        "d": "Poseidon",
+        "ans": 2
+      },
+      {
+        "q": "Who is the Greek goddess of wild animals, the hunt, and vegetation?",
+        "a": "Hecate",
+        "b": "Persephone",
+        "c": "Artemis",
+        "d": "Athena",
+        "ans": 3
+      },
+      {
+        "q": "In Greek mythology, who died after flying close to the sun?",
+        "a": "Icarus",
+        "b": "Zagreus",
+        "c": "Pegasus",
+        "d": "Daedalus",
+        "ans": 1
+      },
+      {
+        "q": "What is the most prevalent noncontagious disease in the world?",
+        "a": "Cancer",
+        "b": "Heart Disease",
+        "c": "Obesity",
+        "d": "Tooth Decay",
+        "ans": 4
+      },
+      {
+        "q": "What is the name of the system that transports blood in the human body?",
+        "a": "Lymphatic",
+        "b": "Cardiovascular",
+        "c": "Varicose",
+        "d": "Respiratory",
+        "ans": 2
+      },
+      {
+        "q": "What is the largest gland in the human body?",
+        "a": "Appendix",
+        "b": "Pancreas",
+        "c": "Liver",
+        "d": "Thyroid",
+        "ans": 3
+      },
+      {
+        "q": "Which muscle is the principle muscle of respiration?",
+        "a": "Diaphragm",
+        "b": "Cardiac Muscle",
+        "c": "Heart",
+        "d": "Flagella",
+        "ans": 1
+      },
+      {
+        "q": "What is the most common element in water?",
+        "a": "Argon",
+        "b": "Helium",
+        "c": "Oxygen",
+        "d": "Hydrogen",
+        "ans": 4
       }
     ],
     "l7": [
@@ -908,6 +1252,126 @@
         "c": "Bolivia",
         "d": "Panama",
         "ans": 2
+      },
+      {
+        "q": "What is the name of the Roman goddess of grain?",
+        "a": "Hela",
+        "b": "Diana",
+        "c": "Ceres",
+        "d": "Hera",
+        "ans": 3
+      },
+      {
+        "q": "The Roman god Jupiter is the equivalent of which Greek god?",
+        "a": "Zeus",
+        "b": "Prometheus",
+        "c": "Poseidon",
+        "d": "Ares",
+        "ans": 1
+      },
+      {
+        "q": "In Greek mythology, who is known as the goddess of war?",
+        "a": "Hela",
+        "b": "Hestia",
+        "c": "Hera",
+        "d": "Athena",
+        "ans": 4
+      },
+      {
+        "q": "What is the scientific term for a disease that causes lockjaw?",
+        "a": "Vertify",
+        "b": "Vertigo",
+        "c": "Vitiligo",
+        "d": "Vermin",
+        "ans": 2
+      },
+      {
+        "q": "Which hormone produced in the pancreas regulates blood sugar levels?",
+        "a": "Prolactin",
+        "b": "Bile",
+        "c": "Insulin",
+        "d": "Epinephrine",
+        "ans": 3
+      },
+      {
+        "q": "Which tissue connects muscle to bone?",
+        "a": "Tendon",
+        "b": "Cartilage",
+        "c": "Ligament",
+        "d": "Connector Tissue",
+        "ans": 1
+      },
+      {
+        "q": "Where is the esophagus located?",
+        "a": "Leg",
+        "b": "Stomach",
+        "c": "Shoulder",
+        "d": "Chest",
+        "ans": 4
+      },
+      {
+        "q": "What is a tropical cyclone called in the Atlantic Ocean?",
+        "a": "Tornado",
+        "b": "Hurricane",
+        "c": "Twister",
+        "d": "Typhoon",
+        "ans": 2
+      },
+      {
+        "q": "Which disease is waterborne?",
+        "a": "Cold",
+        "b": "Mumps",
+        "c": "Cholera",
+        "d": "Impetigo",
+        "ans": 3
+      },
+      {
+        "q": "Radiation is the movement of what from one place to another?",
+        "a": "Energy",
+        "b": "Power",
+        "c": "Gravity",
+        "d": "Radio",
+        "ans": 1
+      },
+      {
+        "q": "Which is a unit of measuring energy?",
+        "a": "Gallon",
+        "b": "Liter",
+        "c": "Jolt",
+        "d": "Joule",
+        "ans": 4
+      },
+      {
+        "q": "Which country was the first to use the metric system of measurement?",
+        "a": "China",
+        "b": "France",
+        "c": "Germany",
+        "d": "India",
+        "ans": 2
+      },
+      {
+        "q": "Who discovered the X-Ray?",
+        "a": "Alexander Fleming",
+        "b": "Stephen Hawking",
+        "c": "Wilhelm Roentgen",
+        "d": "Carl Sagan",
+        "ans": 3
+      },
+      {
+        "q": "Who invented the diesel engine?",
+        "a": "Rudolf Diesel",
+        "b": "Adolf Diesel",
+        "c": "William Diesel",
+        "d": "Mark Diesel",
+        "ans": 1
+      },
+      {
+        "q": "Which scientist invented the world wide web?",
+        "a": "Donald Knuth",
+        "b": "Alan Turing",
+        "c": "Charles Babbage",
+        "d": "Tim Berners-Lee",
+        "ans": 4
       }
     ],
     "l8": [
@@ -942,6 +1406,118 @@
         "c": "British Empire",
         "d": "Spanish Empire",
         "ans": 1
+      },
+      {
+        "q": "The Parthenon is dedicated to which Greek goddess?",
+        "a": "Hera",
+        "b": "Hela",
+        "c": "Athena",
+        "d": "Aphrodite",
+        "ans": 3
+      },
+      {
+        "q": "Who is the Roman god of sea?",
+        "a": "Jupiter",
+        "b": "Mars",
+        "c": "Uranus",
+        "d": "Neptune",
+        "ans": 4
+      },
+      {
+        "q": "Which is the largest hollow space in the human body?",
+        "a": "Pelvic Cavity",
+        "b": "Abdominal Cavity",
+        "c": "Dorsal Cavity",
+        "d": "Cranial Cavity",
+        "ans": 2
+      },
+      {
+        "q": "What is the average temperature of a healthy human body?",
+        "a": "37 Celsius",
+        "b": "45 Celsius",
+        "c": "28 Celsius",
+        "d": "20 Celsius",
+        "ans": 1
+      },
+      {
+        "q": "How many calories does a glass of water contain?",
+        "a": "25",
+        "b": "10",
+        "c": "0",
+        "d": "30",
+        "ans": 3
+      },
+      {
+        "q": "What is the name of the body of an aircraft?",
+        "a": "Aileron",
+        "b": "Fuselarge",
+        "c": "Fuse",
+        "d": "Fuselage",
+        "ans": 4
+      },
+      {
+        "q": "What kind of energy is contained in a rock on a cliff?",
+        "a": "Kinematic",
+        "b": "Potential",
+        "c": "Kinetic",
+        "d": "Nuclear",
+        "ans": 2
+      },
+      {
+        "q": "Which animal kills the most humans annually?",
+        "a": "Mosquito",
+        "b": "Cattle",
+        "c": "Snake",
+        "d": "Shark",
+        "ans": 1
+      },
+      {
+        "q": "The stings of which creature kills hundreds of swimmers each year?",
+        "a": "Starfish",
+        "b": "Squid",
+        "c": "Jellyfish",
+        "d": "Octopus",
+        "ans": 3
+      },
+      {
+        "q": "Which animal has the strongest jaw strength?",
+        "a": "Grizzly Bear",
+        "b": "Polar Bear",
+        "c": "Silverback Gorilla",
+        "d": "Saltwater Crocodile",
+        "ans": 4
+      },
+      {
+        "q": "What is a person with distinguished skill in public speaking known as?",
+        "a": "Zealot",
+        "b": "Orator",
+        "c": "Prosaic",
+        "d": "Novice",
+        "ans": 2
+      },
+      {
+        "q": "World War II started when Germany invaded which country?",
+        "a": "Poland",
+        "b": "Belgium",
+        "c": "Hungary",
+        "d": "France",
+        "ans": 1
+      },
+      {
+        "q": "Little Boy and Fat Man were nicknames for what?",
+        "a": "Italy and Germany",
+        "b": "Stalin and Churchill",
+        "c": "Atomic Bombs",
+        "d": "England and USSR",
+        "ans": 3
+      },
+      {
+        "q": "Which country suffered the most military deaths during the World War II?",
+        "a": "United States",
+        "b": "France",
+        "c": "Germany",
+        "d": "Soviet Union",
+        "ans": 4
       }
     ],
     "l9": [
@@ -984,6 +1560,78 @@
         "c": "Mayan",
         "d": "Inca",
         "ans": 2
+      },
+      {
+        "q": "In Greek mythology, who is regarded as the strongest warrior during the Trojan War?",
+        "a": "Achilles",
+        "b": "Theseus",
+        "c": "Perseus",
+        "d": "Patroclus",
+        "ans": 1
+      },
+      {
+        "q": "Which is the hardest tissue in the human body?",
+        "a": "Cartilage",
+        "b": "Ligament",
+        "c": "Tendon",
+        "d": "Enamel",
+        "ans": 4
+      },
+      {
+        "q": "How much of the human body is made up of blood?",
+        "a": "1/6",
+        "b": "1/2",
+        "c": "1/13",
+        "d": "1/24",
+        "ans": 3
+      },
+      {
+        "q": "Which sport did Pakistani Prime Minister Imran Khan play at the international level?",
+        "a": "Tennis",
+        "b": "Cricket",
+        "c": "Hockey",
+        "d": "Football",
+        "ans": 2
+      },
+      {
+        "q": "Which ocean receives the most fresh water from rivers?",
+        "a": "Atlantic",
+        "b": "Indian",
+        "c": "Pacific",
+        "d": "Southern",
+        "ans": 1
+      },
+      {
+        "q": "When was the first machine gun made?",
+        "a": "18th Century",
+        "b": "21st Century",
+        "c": "20th Century",
+        "d": "19th Century",
+        "ans": 4
+      },
+      {
+        "q": "Which is not a part of an airplane?",
+        "a": "Propeller",
+        "b": "Fuselage",
+        "c": "Vortex",
+        "d": "Aileron",
+        "ans": 3
+      },
+      {
+        "q": "Which African animal is nicknamed 'Black Death'?",
+        "a": "Rhinoceros",
+        "b": "Cape Buffalo",
+        "c": "Hippopotamus",
+        "d": "Gorilla",
+        "ans": 2
+      },
+      {
+        "q": "How did Germany overcome the French Maginot Line in World War II?",
+        "a": "Went Around It",
+        "b": "Bribed Its Way Past",
+        "c": "Bombed It",
+        "d": "Spread Propaganda",
+        "ans": 1
       }
     ],
     "l10": [
@@ -1018,6 +1666,62 @@
         "c": "Bessie Smith",
         "d": "Zola Taylor",
         "ans": 2
+      },
+      {
+        "q": "Who is not a founding member of Apple Inc?",
+        "a": "Steve Jobs",
+        "b": "Jeff Williams",
+        "c": "Steve Wozniak",
+        "d": "Ronald Wayne",
+        "ans": 2
+      },
+      {
+        "q": "According to Hesiod's Works and Days, who possessed a jar containing misery and evil?",
+        "a": "Demeter",
+        "b": "Hades",
+        "c": "Pandora",
+        "d": "Europa",
+        "ans": 3
+      },
+      {
+        "q": "Which part of the human body prevents food from entering the respiratory tracts?",
+        "a": "Larynx",
+        "b": "Pharynx",
+        "c": "Endarynx",
+        "d": "Epiglottis",
+        "ans": 1
+      },
+      {
+        "q": "Which is a voluntary muscle?",
+        "a": "Cranial Muscle",
+        "b": "Visceral Muscle",
+        "c": "Cardiac Muscle",
+        "d": "Skeletal Muscle",
+        "ans": 4
+      },
+      {
+        "q": "Which country's parliament is known as the Knesset?",
+        "a": "Cyprus",
+        "b": "Israel",
+        "c": "Estonia",
+        "d": "Lebanon",
+        "ans": 2
+      },
+      {
+        "q": "Which city was the site of a 900 day siege during World War II?",
+        "a": "London",
+        "b": "Paris",
+        "c": "Leningrad",
+        "d": "Stalingrad",
+        "ans": 3
+      },
+      {
+        "q": "Which place was the site of the last major battle of World War II?",
+        "a": "Okinawa",
+        "b": "Stalingrad",
+        "c": "Berlin",
+        "d": "Leningrad",
+        "ans": 1
       }
     ],
     "l11": [
@@ -1060,6 +1764,62 @@
         "c": "John Michael Booth",
         "d": "James Wilkes Booth",
         "ans": 2
+      },
+      {
+        "q": "What mythological creature has a lion's head, a goat's body, and a dragon's tail?",
+        "a": "Griffin",
+        "b": "Minotaur",
+        "c": "Chiron",
+        "d": "Chimera",
+        "ans": 4
+      },
+      {
+        "q": "Which of the following is a connective tissue?",
+        "a": "Adipose Tissue",
+        "b": "Cardiac Tissue",
+        "c": "Nerve Tissue",
+        "d": "Epithelial Tissue",
+        "ans": 1
+      },
+      {
+        "q": "The inner surface of the stomach is lined by a mucous membrane known as:",
+        "a": "Parietal Mucosa",
+        "b": "Intestinal Mucosa",
+        "c": "Gastric Mucosa",
+        "d": "Submucosa",
+        "ans": 3
+      },
+      {
+        "q": "How many foreigners does Qatar naturalize per year?",
+        "a": "100",
+        "b": "50",
+        "c": "150",
+        "d": "20",
+        "ans": 2
+      },
+      {
+        "q": "How many years do you have to live in Switzerland before applying for citizenship?",
+        "a": "5",
+        "b": "25",
+        "c": "15",
+        "d": "10",
+        "ans": 4
+      },
+      {
+        "q": "Who discovered the vaccine for smallpox?",
+        "a": "Edward Jenner",
+        "b": "Louis Pasteur",
+        "c": "Joseph Lister",
+        "d": "Adam Wittman",
+        "ans": 1
+      },
+      {
+        "q": "Who invented the safety elevator?",
+        "a": "Bruce Ames",
+        "b": "Leo Baekeland",
+        "c": "Elisha Otis",
+        "d": "Hal Anger",
+        "ans": 3
       }
     ],
     "l12": [
@@ -1086,6 +1846,62 @@
         "c": "Cherokee",
         "d": "Wampanoag",
         "ans": 4
+      },
+      {
+        "q": "Who is the Roman equivalent to the Greek god Ares?",
+        "a": "Jupiter",
+        "b": "Mars",
+        "c": "Mercury",
+        "d": "Neptune",
+        "ans": 2
+      },
+      {
+        "q": "What art was the Greek mythical personality Orpheus skilled in?",
+        "a": "Music",
+        "b": "Poetry",
+        "c": "Painting",
+        "d": "Writing",
+        "ans": 1
+      },
+      {
+        "q": "Who developed a vaccine against poliomyelitis?",
+        "a": "Alexander Fleming",
+        "b": "Benjamin Rush",
+        "c": "Jonas Salk",
+        "d": "Benjamin Spock",
+        "ans": 3
+      },
+      {
+        "q": "What is Denis Papin known for inventing?",
+        "a": "Washing Machine",
+        "b": "Refrigerator",
+        "c": "Oven",
+        "d": "Pressure Cooker",
+        "ans": 4
+      },
+      {
+        "q": "Who built the world's first practical automobile to be powered by an internal combustion engine?",
+        "a": "Henry Ford",
+        "b": "Karl Benz",
+        "c": "Gottlieb Daimler",
+        "d": "Wilhelm Maybach",
+        "ans": 2
+      },
+      {
+        "q": "Who designed the first modern air conditioning system?",
+        "a": "Willis Carrier",
+        "b": "William Carmichael",
+        "c": "Schuyler Wheeler",
+        "d": "Lewis Waterman",
+        "ans": 1
+      },
+      {
+        "q": "Which language was used by the US military to encode messages that were never deciphered by the enemy during World War II?",
+        "a": "Wayuu",
+        "b": "Chinanteco",
+        "c": "Navajo",
+        "d": "Yaru Quechua",
+        "ans": 3
       }
     ]
   }
