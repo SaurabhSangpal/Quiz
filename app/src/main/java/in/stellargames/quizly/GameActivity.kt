@@ -8,6 +8,7 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -52,6 +53,13 @@ class GameActivity : ComponentActivity() {
         canTryAgain = intent.getBooleanExtra("canTryAgain", true)
 
         canPlayAudio = getSharedPreferences("quizprefs", MODE_PRIVATE).getBoolean("audio", true)
+
+        onBackPressedDispatcher.addCallback(object :
+            OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                loadMainMenu()
+            }
+        })
 
         setContent {
             QuizTheme {
