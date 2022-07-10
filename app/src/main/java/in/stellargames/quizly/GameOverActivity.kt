@@ -170,11 +170,9 @@ class GameOverActivity : ComponentActivity() {
     private fun retryLevel() {
         mRewardedAd?.show(this, object : OnUserEarnedRewardListener {
             override fun onUserEarnedReward(rewardItem: RewardItem) {
-//                var rewardAmount = rewardItem.amount
                 val intent = Intent(baseContext, GameActivity::class.java)
                 intent.putExtra("level", level)
                 intent.putExtra("canTryAgain", false)
-                // TODO: Add additional data to allow continuing game.
                 startActivity(intent)
             }
         })
@@ -182,15 +180,14 @@ class GameOverActivity : ComponentActivity() {
 
     private fun shareScore() {
         firebase.logEvent(FirebaseAnalytics.Event.SHARE, Bundle().apply {
-            this.putInt("score", score)
-            this.putInt("timeSaved", timeSaved)
+            this.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "player_score")
         })
 
         val intent = Intent().apply {
             action = Intent.ACTION_SEND
             putExtra(
                 Intent.EXTRA_TEXT,
-                "I scored $score points in quiz and saved $timeSaved seconds. Can you beat my score?"
+                "I scored $score points in quiz and saved $timeSaved seconds. Can you beat my score? Download the game to try: https://play.google.com/store/apps/details?id=$packageName"
             )
             type = "text/plain"
         }
