@@ -174,6 +174,7 @@ class GameOverActivity : ComponentActivity() {
                 intent.putExtra("level", level)
                 intent.putExtra("canTryAgain", false)
                 startActivity(intent)
+                finish()
             }
         })
     }
