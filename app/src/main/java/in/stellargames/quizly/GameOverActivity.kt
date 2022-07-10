@@ -188,7 +188,7 @@ class GameOverActivity : ComponentActivity() {
             action = Intent.ACTION_SEND
             putExtra(
                 Intent.EXTRA_TEXT,
-                "I scored $score points in quiz and saved $timeSaved seconds. Can you beat my score? Download the game to try: https://play.google.com/store/apps/details?id=$packageName"
+                "I scored $score points in Quizly and saved $timeSaved seconds. Can you beat my score? Download the game to try: https://play.google.com/store/apps/details?id=$packageName"
             )
             type = "text/plain"
         }
