@@ -25,6 +25,12 @@ import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : ComponentActivity() {
+    private enum class UIState {
+        MainContent,
+        Settings,
+        Rules
+    }
+
     private lateinit var firebase: FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,25 +46,30 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background,
                 ) {
-                    val displayRules =
-                        remember { mutableStateOf(intent.getBooleanExtra("displayRules", false)) }
-                    val showSettings = remember { mutableStateOf(false) }
+                    val uiState = remember {
+                        mutableStateOf(
+                            if (intent.getBooleanExtra(
+                                    "displayRules",
+                                    false
+                                )
+                            ) UIState.Rules else UIState.MainContent
+                        )
+                    }
+
                     // Custom back functionality to get out of settings panel.
                     onBackPressedDispatcher.addCallback(object :
                         OnBackPressedCallback(true) {
                         override fun handleOnBackPressed() {
-                            if (showSettings.value) {
-                                showSettings.value = false
-                            } else if (displayRules.value) {
-                                displayRules.value = false
+                            if (uiState.value != UIState.MainContent) {
+                                uiState.value = UIState.MainContent
                             } else {
                                 finish()
                             }
                         }
                     })
-                    DisplayRules(displayRules, showSettings)
-                    DisplaySettings(showSettings, displayRules, prefs)
-                    ShowMainContent(showSettings, displayRules)
+                    DisplayRules(uiState)
+                    DisplaySettings(uiState, prefs)
+                    ShowMainContent(uiState)
                 }
             }
         }
@@ -67,11 +78,10 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalAnimationApi::class)
     @Composable
     private fun ShowMainContent(
-        showSettings: MutableState<Boolean>,
-        displayRules: MutableState<Boolean>
+        uiState: MutableState<UIState>
     ) {
         AnimatedVisibility(
-            visible = !showSettings.value && !displayRules.value,
+            visible = uiState.value == UIState.MainContent,
             enter = fadeIn(),
             exit = fadeOut()
         ) {
@@ -105,14 +115,14 @@ class MainActivity : ComponentActivity() {
                 }
                 Spacer(modifier = Modifier.height(30.dp))
                 Button(
-                    onClick = { showSettings.value = true },
+                    onClick = { uiState.value = UIState.Settings },
                     modifier = btnModifier
                 ) {
                     Text("Settings")
                 }
                 Spacer(modifier = Modifier.height(30.dp))
                 Button(
-                    onClick = { displayRules.value = true },
+                    onClick = { uiState.value = UIState.Rules },
                     modifier = btnModifier
                 ) {
                     Text("Rules")
@@ -124,12 +134,11 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalAnimationApi::class)
     @Composable
     private fun DisplaySettings(
-        showSettings: MutableState<Boolean>,
-        displayRules: MutableState<Boolean>,
+        uiState: MutableState<UIState>,
         prefs: SharedPreferences
     ) {
         AnimatedVisibility(
-            visible = showSettings.value && !displayRules.value,
+            visible = uiState.value == UIState.Settings,
             enter = fadeIn(),
             exit = fadeOut()
         ) {
@@ -174,11 +183,10 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalAnimationApi::class)
     @Composable
     private fun DisplayRules(
-        displayRules: MutableState<Boolean>,
-        showSettings: MutableState<Boolean>
+        uiState: MutableState<UIState>
     ) {
         AnimatedVisibility(
-            visible = displayRules.value && !showSettings.value,
+            visible = uiState.value == UIState.Rules,
             enter = fadeIn(),
             exit = fadeOut()
         ) {
